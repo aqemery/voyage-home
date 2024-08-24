@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct03l2lvnnrdq"]
+
+[ext_resource type="Texture2D" uid="uid://dwqsryom40ky0" path="res://images/sectors.png" id="1_gn1on"]
+[ext_resource type="Script" path="res://objects/minimap.gd" id="1_wcvgi"]
+[ext_resource type="Script" path="res://objects/positon.gd" id="3_b4p3c"]
+
+[node name="Minimap" type="Node2D"]
+script = ExtResource("1_wcvgi")
+
+[node name="Sectors" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("1_gn1on")
+centered = false
+region_enabled = true
+region_rect = Rect2(51, 52, 52, 48)
+
+[node name="positon" type="Node2D" parent="."]
+position = Vector2(26, 24)
+scale = Vector2(2, 2)
+script = ExtResource("3_b4p3c")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="positon" method="_on_timer_timeout"]

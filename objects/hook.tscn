@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh0e4b57c40de"]
+
+[ext_resource type="Texture2D" uid="uid://b4nwd4hqyq5el" path="res://images/hook.png" id="1_7nbcn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pwuw"]
+atlas = ExtResource("1_7nbcn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gojoj"]
+atlas = ExtResource("1_7nbcn")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1xko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pwuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gojoj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="hook" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_q1xko")
+autoplay = "default"
+frame_progress = 0.771263

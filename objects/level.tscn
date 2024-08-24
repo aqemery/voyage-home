@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhoyuwma1no8p"]
+
+[ext_resource type="Texture2D" uid="uid://dwqsryom40ky0" path="res://images/sectors.png" id="1_nsxt5"]
+[ext_resource type="PackedScene" uid="uid://bo5awully4anc" path="res://objects/ship.tscn" id="3_plpeq"]
+[ext_resource type="PackedScene" uid="uid://ddhyaqvpyuxlr" path="res://objects/wormhole.tscn" id="4_17cap"]
+[ext_resource type="PackedScene" uid="uid://bvmf1a2rfl5ok" path="res://objects/gravity_well.tscn" id="5_nr162"]
+[ext_resource type="PackedScene" uid="uid://cc6xhoijoxgjp" path="res://objects/gravity_push.tscn" id="7_4447a"]
+[ext_resource type="PackedScene" uid="uid://mkmkg6tdcxjf" path="res://objects/home.tscn" id="8_3j7t7"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_d11w2"]
+b = Vector2(16854, 2.08165e-12)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_l5118"]
+b = Vector2(16854, 2.08165e-12)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r77nm"]
+a = Vector2(2.08165e-12, 2.08165e-12)
+b = Vector2(2.08165e-12, 16854)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mme05"]
+a = Vector2(2.08165e-12, 16854)
+b = Vector2(16854, 16854)
+
+[node name="level" type="Node"]
+
+[node name="Sectors" type="Sprite2D" parent="."]
+position = Vector2(-2550, -2600)
+scale = Vector2(50, 50)
+texture = ExtResource("1_nsxt5")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="wormhole" parent="." instance=ExtResource("4_17cap")]
+position = Vector2(315, 85)
+frame_progress = 0.538346
+
+[node name="gravity_push" parent="." instance=ExtResource("7_4447a")]
+position = Vector2(3078, 12557)
+
+[node name="home" parent="." instance=ExtResource("8_3j7t7")]
+position = Vector2(4075, 13078)
+
+[node name="gravity_well" parent="." instance=ExtResource("5_nr162")]
+position = Vector2(707, 13566)
+
+[node name="ship" parent="." instance=ExtResource("3_plpeq")]
+position = Vector2(3538, 12874)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_d11w2")
+one_way_collision_margin = 0.0
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("SegmentShape2D_l5118")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("SegmentShape2D_r77nm")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("SegmentShape2D_mme05")

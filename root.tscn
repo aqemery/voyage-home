@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cak3wdahbglks"]
+
+[ext_resource type="Script" path="res://root.gd" id="1_yke5c"]
+[ext_resource type="PackedScene" uid="uid://b3phssckxxih" path="res://objects/fuel_tank.tscn" id="2_f2qpi"]
+[ext_resource type="Texture2D" uid="uid://ckft882y7le3y" path="res://images/frame.png" id="3_sdqvu"]
+[ext_resource type="PackedScene" uid="uid://dhoyuwma1no8p" path="res://objects/level.tscn" id="4_sj4qr"]
+[ext_resource type="PackedScene" uid="uid://ct03l2lvnnrdq" path="res://objects/minimap.tscn" id="5_6o5gn"]
+
+[node name="Root" type="Node2D"]
+script = ExtResource("1_yke5c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Minimap" parent="CanvasLayer/Control" instance=ExtResource("5_6o5gn")]
+position = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control"]
+texture = ExtResource("3_sdqvu")
+centered = false
+
+[node name="fuel_tank" parent="CanvasLayer/Control" instance=ExtResource("2_f2qpi")]
+position = Vector2(7, 61)
+
+[node name="level" parent="." instance=ExtResource("4_sj4qr")]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddhyaqvpyuxlr"]
+
+[ext_resource type="Texture2D" uid="uid://c1fvecxxdv6dp" path="res://images/wormwhole.png" id="1_42354"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0iir"]
+atlas = ExtResource("1_42354")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0bjj"]
+atlas = ExtResource("1_42354")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25abq"]
+atlas = ExtResource("1_42354")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bx8xd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0iir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0bjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25abq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="wormhole" type="AnimatedSprite2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+sprite_frames = SubResource("SpriteFrames_bx8xd")
+autoplay = "default"
+frame_progress = 0.715924

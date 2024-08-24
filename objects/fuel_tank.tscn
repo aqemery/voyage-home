@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3phssckxxih"]
+
+[ext_resource type="Texture2D" uid="uid://g2n33bcg2ovj" path="res://images/engine.png" id="1_f86ll"]
+[ext_resource type="Script" path="res://objects/fuel_tank.gd" id="2_00lii"]
+[ext_resource type="SpriteFrames" uid="uid://bnibscjbj0sby" path="res://resources/fuel.tres" id="3_foxim"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3obft"]
+atlas = ExtResource("1_f86ll")
+region = Rect2(0, 0, 47, 174)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfjai"]
+atlas = ExtResource("1_f86ll")
+region = Rect2(47, 0, 47, 174)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_frqhm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3obft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfjai")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="fuel_tank" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_frqhm")
+autoplay = "default"
+frame_progress = 0.807501
+centered = false
+script = ExtResource("2_00lii")
+
+[node name="tank-0" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 125)
+sprite_frames = ExtResource("3_foxim")
+animation = &"5"
+frame_progress = 0.202662
+
+[node name="tank-1" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 93)
+sprite_frames = ExtResource("3_foxim")
+animation = &"0"
+frame_progress = 0.908511
+
+[node name="tank-2" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 61)
+sprite_frames = ExtResource("3_foxim")
+animation = &"5"
+frame_progress = 0.954082
+
+[node name="tank-3" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 29)
+sprite_frames = ExtResource("3_foxim")
+animation = &"5"
+frame_progress = 0.892003
+
+[node name="connect-1" type="ColorRect" parent="."]
+visible = false
+offset_left = 22.0
+offset_top = 107.0
+offset_right = 26.0
+offset_bottom = 111.0
+color = Color(0, 0, 0, 1)
+
+[node name="connect-2" type="ColorRect" parent="."]
+visible = false
+offset_left = 22.0
+offset_top = 75.0
+offset_right = 26.0
+offset_bottom = 79.0
+color = Color(0, 0, 0, 1)
+
+[node name="connect-3" type="ColorRect" parent="."]
+visible = false
+offset_left = 22.0
+offset_top = 43.0
+offset_right = 26.0
+offset_bottom = 47.0
+color = Color(0, 0, 0, 1)
