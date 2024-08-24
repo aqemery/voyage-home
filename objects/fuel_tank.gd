@@ -26,7 +26,7 @@ func _process(delta):
     for i in range(4):
         var f = fuel - i
         
-        var t:AnimatedSprite2D = tanks[i]
+        var t: AnimatedSprite2D = tanks[i]
         var a = str(int(max(min(5, f * 5), 0)))
         
         if t.animation != a:
@@ -49,12 +49,8 @@ func _process(delta):
             #t.play("0")            
         
         
-        
-    
-    
     ##var current_tank = 
     #
     #tank_1.play(str(int(fuel)))
     #pass
     #
-

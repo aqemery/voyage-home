@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://jtnqlgpyj3ve"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahktw"]
+size = Vector2(2408, 2408)
+
+[node name="nebula" type="StaticBody2D" groups=["nebula"]]
+
+[node name="nebula_shape" type="CollisionShape2D" parent="."]
+position = Vector2(1204, 1204)
+shape = SubResource("RectangleShape2D_ahktw")
+debug_color = Color(0.772549, 0.176471, 0.976471, 0.419608)

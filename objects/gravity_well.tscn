@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvmf1a2rfl5ok"]
+[gd_scene load_steps=5 format=3 uid="uid://bvmf1a2rfl5ok"]
 
 [ext_resource type="Script" path="res://objects/gravity_well.gd" id="1_3fef5"]
 [ext_resource type="PackedScene" uid="uid://ddhyaqvpyuxlr" path="res://objects/wormhole.tscn" id="2_k0x43"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xmchq"]
 radius = 90.0056
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o8keh"]
+radius = 5.0
 
 [node name="gravity_well" type="Area2D"]
 collision_layer = 0
@@ -22,3 +25,9 @@ script = ExtResource("1_3fef5")
 shape = SubResource("CircleShape2D_xmchq")
 
 [node name="wormhole" parent="." instance=ExtResource("2_k0x43")]
+position = Vector2(-1, 4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["wormhole"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_o8keh")

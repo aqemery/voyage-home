@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwpug41afcile"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahktw"]
+size = Vector2(2408, 2408)
+
+[node name="asteroid" type="StaticBody2D" groups=["asteroid"]]
+
+[node name="asteroid_shape" type="CollisionShape2D" parent="."]
+position = Vector2(1204, 1204)
+shape = SubResource("RectangleShape2D_ahktw")
+debug_color = Color(0.686275, 0.501961, 0, 0.419608)

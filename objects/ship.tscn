@@ -21,6 +21,9 @@ shape = SubResource("CircleShape2D_5yxde")
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 collision_layer = 2
 can_sleep = false
+continuous_cd = 1
+max_contacts_reported = 1
+contact_monitor = true
 
 [node name="physics_col" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_x7bg3")

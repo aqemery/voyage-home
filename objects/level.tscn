@@ -1,29 +1,22 @@
 [gd_scene load_steps=11 format=3 uid="uid://dhoyuwma1no8p"]
 
 [ext_resource type="Texture2D" uid="uid://dwqsryom40ky0" path="res://images/sectors.png" id="1_nsxt5"]
+[ext_resource type="PackedScene" uid="uid://jql6epjymvaq" path="res://sector_hazard/level_bounds.tscn" id="1_wvhr3"]
 [ext_resource type="PackedScene" uid="uid://bo5awully4anc" path="res://objects/ship.tscn" id="3_plpeq"]
 [ext_resource type="PackedScene" uid="uid://ddhyaqvpyuxlr" path="res://objects/wormhole.tscn" id="4_17cap"]
 [ext_resource type="PackedScene" uid="uid://bvmf1a2rfl5ok" path="res://objects/gravity_well.tscn" id="5_nr162"]
+[ext_resource type="PackedScene" uid="uid://df6h2p5lgbmqd" path="res://sector_hazard/enemy.tscn" id="6_153ee"]
+[ext_resource type="PackedScene" uid="uid://jtnqlgpyj3ve" path="res://sector_hazard/nebula.tscn" id="6_sqw2p"]
 [ext_resource type="PackedScene" uid="uid://cc6xhoijoxgjp" path="res://objects/gravity_push.tscn" id="7_4447a"]
-[ext_resource type="PackedScene" uid="uid://mkmkg6tdcxjf" path="res://objects/home.tscn" id="8_3j7t7"]
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_d11w2"]
-b = Vector2(16854, 2.08165e-12)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_l5118"]
-b = Vector2(16854, 2.08165e-12)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_r77nm"]
-a = Vector2(2.08165e-12, 2.08165e-12)
-b = Vector2(2.08165e-12, 16854)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_mme05"]
-a = Vector2(2.08165e-12, 16854)
-b = Vector2(16854, 16854)
+[ext_resource type="PackedScene" uid="uid://mkmkg6tdcxjf" path="res://objects/city.tscn" id="8_3j7t7"]
+[ext_resource type="PackedScene" uid="uid://cwpug41afcile" path="res://sector_hazard/asteroid.tscn" id="8_5x2c6"]
 
 [node name="level" type="Node"]
 
+[node name="level_bounds" parent="." instance=ExtResource("1_wvhr3")]
+
 [node name="Sectors" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.360784)
 position = Vector2(-2550, -2600)
 scale = Vector2(50, 50)
 texture = ExtResource("1_nsxt5")
@@ -32,46 +25,113 @@ centered = false
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="wormhole" parent="." instance=ExtResource("4_17cap")]
-position = Vector2(315, 85)
+position = Vector2(618, 294)
 frame_progress = 0.538346
-
-[node name="gravity_push" parent="." instance=ExtResource("7_4447a")]
-position = Vector2(3078, 12557)
-
-[node name="home" parent="." instance=ExtResource("8_3j7t7")]
-position = Vector2(4075, 13078)
-
-[node name="gravity_well" parent="." instance=ExtResource("5_nr162")]
-position = Vector2(707, 13566)
 
 [node name="ship" parent="." instance=ExtResource("3_plpeq")]
 position = Vector2(3538, 12874)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 7
-collision_mask = 7
+[node name="Ports" type="Node" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("SegmentShape2D_d11w2")
-one_way_collision_margin = 0.0
+[node name="city5-1" parent="Ports" instance=ExtResource("8_3j7t7")]
+position = Vector2(13625, 3023)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-collision_layer = 7
-collision_mask = 7
+[node name="city2-0" parent="Ports" instance=ExtResource("8_3j7t7")]
+position = Vector2(6077, 1327)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource("SegmentShape2D_l5118")
+[node name="city2-3" parent="Ports" instance=ExtResource("8_3j7t7")]
+position = Vector2(5527, 8525)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-collision_layer = 7
-collision_mask = 7
+[node name="city1-5" parent="Ports" instance=ExtResource("8_3j7t7")]
+position = Vector2(4075, 13078)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-shape = SubResource("SegmentShape2D_r77nm")
+[node name="city3-2" parent="Ports" instance=ExtResource("8_3j7t7")]
+position = Vector2(8425, 5826)
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
-collision_layer = 7
-collision_mask = 7
+[node name="s1-5" type="Node" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-shape = SubResource("SegmentShape2D_mme05")
+[node name="Nebulas" type="Node" parent="."]
+
+[node name="nebula5-3" parent="Nebulas" instance=ExtResource("6_sqw2p")]
+position = Vector2(12040, 7224)
+
+[node name="nebula6-3" parent="Nebulas" instance=ExtResource("6_sqw2p")]
+position = Vector2(9632, 7224)
+
+[node name="nebula4-3" parent="Nebulas" instance=ExtResource("6_sqw2p")]
+position = Vector2(14448, 7224)
+
+[node name="nebula3-3" parent="Nebulas" instance=ExtResource("6_sqw2p")]
+position = Vector2(7224, 7224)
+
+[node name="nebula1-2" parent="Nebulas" instance=ExtResource("6_sqw2p")]
+position = Vector2(2408, 4816)
+
+[node name="Asteroids" type="Node" parent="."]
+
+[node name="asteroid4-6" parent="Asteroids" instance=ExtResource("8_5x2c6")]
+position = Vector2(9632, 14448)
+
+[node name="asteroid5-6" parent="Asteroids" instance=ExtResource("8_5x2c6")]
+position = Vector2(12040, 14448)
+
+[node name="asteroid4-0" parent="Asteroids" instance=ExtResource("8_5x2c6")]
+position = Vector2(9632, 4.1633e-12)
+
+[node name="asteroid4-4" parent="Asteroids" instance=ExtResource("8_5x2c6")]
+position = Vector2(9632, 9632)
+
+[node name="asteroid4-5" parent="Asteroids" instance=ExtResource("8_5x2c6")]
+position = Vector2(9632, 12040)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="enemy5-0" parent="Enemies" instance=ExtResource("6_153ee")]
+position = Vector2(12040, 0)
+
+[node name="enemy6-1" parent="Enemies" instance=ExtResource("6_153ee")]
+position = Vector2(14448, 2408)
+
+[node name="enemy6-2" parent="Enemies" instance=ExtResource("6_153ee")]
+position = Vector2(14448, 4816)
+
+[node name="enemy4-1" parent="Enemies" instance=ExtResource("6_153ee")]
+position = Vector2(9632, 2408)
+
+[node name="enemy3-1" parent="Enemies" instance=ExtResource("6_153ee")]
+position = Vector2(7224, 2408)
+
+[node name="enemy0-1" parent="Enemies" instance=ExtResource("6_153ee")]
+position = Vector2(2.08165e-12, 2408)
+
+[node name="enemy0-2" parent="Enemies" instance=ExtResource("6_153ee")]
+position = Vector2(0, 4816)
+
+[node name="enemy2-6" parent="Enemies" instance=ExtResource("6_153ee")]
+position = Vector2(4824, 14426)
+
+[node name="enemy6-4" parent="Enemies" instance=ExtResource("6_153ee")]
+position = Vector2(14448, 9632)
+
+[node name="enemy5-5" parent="Enemies" instance=ExtResource("6_153ee")]
+position = Vector2(12040, 12040)
+
+[node name="enemy5-6" parent="Enemies" instance=ExtResource("6_153ee")]
+position = Vector2(14448, 14448)
+
+[node name="wormholes" type="Node" parent="."]
+
+[node name="gravity_push2" parent="wormholes" instance=ExtResource("7_4447a")]
+position = Vector2(15932, 12714)
+
+[node name="gravity_well2" parent="wormholes" instance=ExtResource("5_nr162")]
+position = Vector2(14975, 570)
+
+[node name="gravity_push" parent="wormholes" instance=ExtResource("7_4447a")]
+position = Vector2(8427, 15488)
+
+[node name="gravity_push3" parent="wormholes" instance=ExtResource("7_4447a")]
+position = Vector2(3078, 12557)
+
+[node name="gravity_well" parent="wormholes" instance=ExtResource("5_nr162")]
+position = Vector2(732, 13688)

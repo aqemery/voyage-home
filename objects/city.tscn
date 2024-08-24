@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mkmkg6tdcxjf"]
+[gd_scene load_steps=8 format=3 uid="uid://mkmkg6tdcxjf"]
 
 [ext_resource type="Texture2D" uid="uid://c53cv4e47s1fk" path="res://images/base.png" id="1_ndeqr"]
 
@@ -38,7 +38,16 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="home" type="AnimatedSprite2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qr1rc"]
+radius = 15.0
+
+[node name="city" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_laaqn")
 autoplay = "default"
 frame_progress = 0.485311
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["city", "refuel"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_qr1rc")

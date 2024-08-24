@@ -23,14 +23,14 @@ func _ready():
 func _on_timeout():
     ObjectMaker.make_breadcrumb(global_position)
 
-func update_area(a:float):
+func update_area(a: float):
     area = a
     radius = area_to_radius(a)
     area_col.shape.radius = radius
     physics_col.shape.radius = radius
     queue_redraw()
 
-func update_radius(r:float):
+func update_radius(r: float):
     radius = r
     area = circle_area(radius)
     area_col.shape.radius = r
@@ -56,15 +56,6 @@ func _physics_process(delta):
         queue_free()
         
         
-        
-    #for area in get_overlapping_areas():
-        #if area.name == "bubble":
-            #suck(area)
-            #print("sucking")
-    
-    for area:Bubble in get_overlapping_areas():
-         suck(area)
-
     # key down
     thrust = false
     queue_redraw()
@@ -75,27 +66,22 @@ func _physics_process(delta):
     SignalManager.player_moved.emit(global_position)
 
 
-
-        
-       
-
-
 func fire():
-    print("fuel: ", FuelManager.fuel)
+    #print("fuel: ", FuelManager.fuel)
 
     # don't accelerate if max speed is reached
     if FuelManager.fuel >= 0:
         thrust = true
         FuelManager.fuel -= .002
-        rigid_body_2d.apply_central_impulse(Vector2(0,-5).rotated(rotation))
+        rigid_body_2d.apply_central_impulse(Vector2(0, -5).rotated(rotation))
 
-    if rigid_body_2d.linear_velocity.length() > max_speed:
-        thrust = false
-        FuelManager.fuel += .002
-        rigid_body_2d.linear_velocity = rigid_body_2d.linear_velocity.normalized() * (max_speed-1)
-    
-    if rigid_body_2d.linear_velocity.length() >= max_speed-2:
-        thrust = false
+    #if rigid_body_2d.linear_velocity.length() > max_speed:
+        #thrust = false
+        #FuelManager.fuel += .002
+        #rigid_body_2d.linear_velocity = rigid_body_2d.linear_velocity.normalized() * (max_speed - 1)
+    #
+    #if rigid_body_2d.linear_velocity.length() >= max_speed - 2:
+        #thrust = false
         
 
 func suck(other):
@@ -111,40 +97,41 @@ func suck(other):
         if other_radius < other.radius:
             other.update_radius(other_radius)
 
-func circle_area(r:float):
+func circle_area(r: float):
     return PI * r * r
 
-func area_to_radius(a:float):
-    return sqrt(a/PI)
+func area_to_radius(a: float):
+    return sqrt(a / PI)
 #
 func _draw():
     #draw_circle(center, circle.radius, Color.BLACK)
     #draw_circle(position, circle.radius, Color.BLACK)
-    draw_arc(Vector2.ZERO, area_col.shape.radius, 0, 2*PI, 45, Color.BLACK, 1)
+    draw_arc(Vector2.ZERO, area_col.shape.radius, 0, 2 * PI, 45, Color.BLACK, 1)
     # draw a trangle
     draw_colored_polygon([
-        Vector2(0, -area_col.shape.radius+1),
-        Vector2(-area_col.shape.radius+3, area_col.shape.radius -4),
-        Vector2(0, area_col.shape.radius -6),
-        Vector2(area_col.shape.radius -3, area_col.shape.radius -4),
+        Vector2(0, -area_col.shape.radius + 1),
+        Vector2(-area_col.shape.radius + 3, area_col.shape.radius - 4),
+        Vector2(0, area_col.shape.radius - 6),
+        Vector2(area_col.shape.radius - 3, area_col.shape.radius - 4),
        
     ], Color.BLACK)
-    #
-    #
-    
+
     if thrust:
         draw_colored_polygon([
             Vector2(0, 5),
             Vector2(3, 7),
-            Vector2(0,20),
-            Vector2(-3,7),
+            Vector2(0, 20),
+            Vector2(-3, 7),
         ], Color.BLACK)
 
 
-
 func _on_rigid_body_2d_body_entered(body):
-    suck(body)
-    print("body entered")
+    for g in body.get_groups():
+        if "_root" in g:
+            continue
+        SignalManager.player_hit.emit(g, global_position.x, global_position.y)
+        #prints("hit something", g)
+    
 
 
 func _on_timer_timeout():
