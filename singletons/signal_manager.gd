@@ -10,9 +10,6 @@ signal low_fuel
 signal refuel
 
 
-
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
     player_hit.connect(print_hit)
@@ -41,6 +38,8 @@ func print_hit(group, x, y):
             print("player hit")
         "sensor":
             print("sensor hit")
+        "ruin":
+            print("ruin hit")
         "wall":
             print("wall hit")
         "wormhole":

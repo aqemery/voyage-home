@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxvbkbbgpq513"]
+
+[ext_resource type="Texture2D" uid="uid://c65q5twipj30x" path="res://images/ruins.png" id="1_7r17m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4trv"]
+atlas = ExtResource("1_7r17m")
+region = Rect2(0, 0, 19, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a247e"]
+atlas = ExtResource("1_7r17m")
+region = Rect2(19, 0, 19, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2m1y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4trv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a247e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qr1rc"]
+radius = 9.0
+
+[node name="ruin" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_w2m1y")
+autoplay = "default"
+frame_progress = 0.690949
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["ruin"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_qr1rc")

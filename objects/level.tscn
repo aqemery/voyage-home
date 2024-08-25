@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhoyuwma1no8p"]
+[gd_scene load_steps=16 format=3 uid="uid://dhoyuwma1no8p"]
 
 [ext_resource type="Texture2D" uid="uid://dwqsryom40ky0" path="res://images/sectors.png" id="1_nsxt5"]
 [ext_resource type="PackedScene" uid="uid://jql6epjymvaq" path="res://sector_hazard/level_bounds.tscn" id="1_wvhr3"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://mkmkg6tdcxjf" path="res://objects/city.tscn" id="8_3j7t7"]
 [ext_resource type="PackedScene" uid="uid://cwpug41afcile" path="res://sector_hazard/asteroid.tscn" id="8_5x2c6"]
 [ext_resource type="PackedScene" uid="uid://bbeouesj1r0r4" path="res://objects/research.tscn" id="12_5sonm"]
+[ext_resource type="PackedScene" uid="uid://bxvbkbbgpq513" path="res://objects/ruin.tscn" id="13_ckqsh"]
 [ext_resource type="PackedScene" uid="uid://cob5tewqnexfg" path="res://objects/help.tscn" id="13_tf511"]
 [ext_resource type="PackedScene" uid="uid://ctas4gnlyv346" path="res://objects/sensor_tower.tscn" id="14_i5bap"]
 
@@ -145,14 +146,35 @@ position = Vector2(732, 13688)
 
 [node name="interact" type="Node" parent="."]
 
-[node name="help" parent="." instance=ExtResource("13_tf511")]
+[node name="ruin" parent="interact" instance=ExtResource("13_ckqsh")]
+position = Vector2(1269, 15582)
+
+[node name="ruin2" parent="interact" instance=ExtResource("13_ckqsh")]
+position = Vector2(8020, 11273)
+
+[node name="ruin3" parent="interact" instance=ExtResource("13_ckqsh")]
+position = Vector2(5367, 5872)
+
+[node name="ruin4" parent="interact" instance=ExtResource("13_ckqsh")]
+position = Vector2(4175, 521)
+
+[node name="help" parent="interact" instance=ExtResource("13_tf511")]
 position = Vector2(673, 10623)
 
-[node name="help2" parent="." instance=ExtResource("13_tf511")]
+[node name="help2" parent="interact" instance=ExtResource("13_tf511")]
 position = Vector2(8272, 13171)
 
-[node name="help3" parent="." instance=ExtResource("13_tf511")]
+[node name="help3" parent="interact" instance=ExtResource("13_tf511")]
 position = Vector2(8226, 1223)
 
 [node name="sensor_tower" parent="." instance=ExtResource("14_i5bap")]
 position = Vector2(5978, 12925)
+
+[node name="sensor_tower2" parent="." instance=ExtResource("14_i5bap")]
+position = Vector2(3623, 3273)
+
+[node name="sensor_tower3" parent="." instance=ExtResource("14_i5bap")]
+position = Vector2(10777, 5624)
+
+[node name="sensor_tower4" parent="." instance=ExtResource("14_i5bap")]
+position = Vector2(3577, 8074)
