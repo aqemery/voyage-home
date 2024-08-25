@@ -30,7 +30,7 @@ radius = 9.0
 [node name="help" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_jv4nb")
 autoplay = "default"
-frame_progress = 0.0738844
+frame_progress = 0.627469
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["help"]]
 

@@ -39,6 +39,8 @@ func print_hit(group, x, y):
             refuel.emit()
         "player":
             print("player hit")
+        "sensor":
+            print("sensor hit")
         "wall":
             print("wall hit")
         "wormhole":
