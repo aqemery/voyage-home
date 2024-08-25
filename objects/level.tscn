@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhoyuwma1no8p"]
+[gd_scene load_steps=14 format=3 uid="uid://dhoyuwma1no8p"]
 
 [ext_resource type="Texture2D" uid="uid://dwqsryom40ky0" path="res://images/sectors.png" id="1_nsxt5"]
 [ext_resource type="PackedScene" uid="uid://jql6epjymvaq" path="res://sector_hazard/level_bounds.tscn" id="1_wvhr3"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://mkmkg6tdcxjf" path="res://objects/city.tscn" id="8_3j7t7"]
 [ext_resource type="PackedScene" uid="uid://cwpug41afcile" path="res://sector_hazard/asteroid.tscn" id="8_5x2c6"]
 [ext_resource type="PackedScene" uid="uid://bbeouesj1r0r4" path="res://objects/research.tscn" id="12_5sonm"]
+[ext_resource type="PackedScene" uid="uid://cob5tewqnexfg" path="res://objects/help.tscn" id="13_tf511"]
 
 [node name="level" type="Node"]
 
@@ -51,6 +52,9 @@ position = Vector2(8425, 5826)
 
 [node name="ConstructionPlatform" parent="Ports" instance=ExtResource("5_rr0fa")]
 position = Vector2(1033, 1125)
+
+[node name="research" parent="Ports" instance=ExtResource("12_5sonm")]
+position = Vector2(13270, 5645)
 
 [node name="Nebulas" type="Node" parent="."]
 
@@ -138,5 +142,13 @@ position = Vector2(3078, 12557)
 [node name="gravity_well" parent="wormholes" instance=ExtResource("5_nr162")]
 position = Vector2(732, 13688)
 
-[node name="research" parent="." instance=ExtResource("12_5sonm")]
-position = Vector2(13270, 5645)
+[node name="interact" type="Node" parent="."]
+
+[node name="help" parent="." instance=ExtResource("13_tf511")]
+position = Vector2(673, 10623)
+
+[node name="help2" parent="." instance=ExtResource("13_tf511")]
+position = Vector2(8272, 13171)
+
+[node name="help3" parent="." instance=ExtResource("13_tf511")]
+position = Vector2(8226, 1223)

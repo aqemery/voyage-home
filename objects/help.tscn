@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cob5tewqnexfg"]
+
+[ext_resource type="Texture2D" uid="uid://b8mwkjeforuy4" path="res://images/sos.png" id="1_ur165"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udm2n"]
+atlas = ExtResource("1_ur165")
+region = Rect2(0, 0, 23, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlhst"]
+atlas = ExtResource("1_ur165")
+region = Rect2(23, 0, 23, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jv4nb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udm2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlhst")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qr1rc"]
+radius = 9.0
+
+[node name="help" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_jv4nb")
+autoplay = "default"
+frame_progress = 0.0738844
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["help"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2, 6)
+shape = SubResource("CircleShape2D_qr1rc")
