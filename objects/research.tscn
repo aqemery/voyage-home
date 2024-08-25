@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbeouesj1r0r4"]
+
+[ext_resource type="Texture2D" uid="uid://doeacjsmd0ybv" path="res://images/research.png" id="1_ik8r1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_likfg"]
+atlas = ExtResource("1_ik8r1")
+region = Rect2(0, 0, 35, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw51p"]
+atlas = ExtResource("1_ik8r1")
+region = Rect2(35, 0, 35, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkeo5"]
+atlas = ExtResource("1_ik8r1")
+region = Rect2(70, 0, 35, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qk4v"]
+atlas = ExtResource("1_ik8r1")
+region = Rect2(105, 0, 35, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4g0n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_likfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw51p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkeo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qk4v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qr1rc"]
+radius = 15.0
+
+[node name="research" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_p4g0n")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["refuel", "research"]]
+position = Vector2(2, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_qr1rc")

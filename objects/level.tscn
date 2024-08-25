@@ -1,15 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhoyuwma1no8p"]
+[gd_scene load_steps=13 format=3 uid="uid://dhoyuwma1no8p"]
 
 [ext_resource type="Texture2D" uid="uid://dwqsryom40ky0" path="res://images/sectors.png" id="1_nsxt5"]
 [ext_resource type="PackedScene" uid="uid://jql6epjymvaq" path="res://sector_hazard/level_bounds.tscn" id="1_wvhr3"]
 [ext_resource type="PackedScene" uid="uid://bo5awully4anc" path="res://objects/ship.tscn" id="3_plpeq"]
-[ext_resource type="PackedScene" uid="uid://ddhyaqvpyuxlr" path="res://objects/wormhole.tscn" id="4_17cap"]
+[ext_resource type="PackedScene" uid="uid://j3v5wkol0mhv" path="res://objects/observatory.tscn" id="4_1rjlf"]
 [ext_resource type="PackedScene" uid="uid://bvmf1a2rfl5ok" path="res://objects/gravity_well.tscn" id="5_nr162"]
+[ext_resource type="PackedScene" uid="uid://bfj4kgrq8i80s" path="res://objects/construction_platform.tscn" id="5_rr0fa"]
 [ext_resource type="PackedScene" uid="uid://df6h2p5lgbmqd" path="res://sector_hazard/enemy.tscn" id="6_153ee"]
 [ext_resource type="PackedScene" uid="uid://jtnqlgpyj3ve" path="res://sector_hazard/nebula.tscn" id="6_sqw2p"]
 [ext_resource type="PackedScene" uid="uid://cc6xhoijoxgjp" path="res://objects/gravity_push.tscn" id="7_4447a"]
 [ext_resource type="PackedScene" uid="uid://mkmkg6tdcxjf" path="res://objects/city.tscn" id="8_3j7t7"]
 [ext_resource type="PackedScene" uid="uid://cwpug41afcile" path="res://sector_hazard/asteroid.tscn" id="8_5x2c6"]
+[ext_resource type="PackedScene" uid="uid://bbeouesj1r0r4" path="res://objects/research.tscn" id="12_5sonm"]
 
 [node name="level" type="Node"]
 
@@ -24,14 +26,13 @@ centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="wormhole" parent="." instance=ExtResource("4_17cap")]
-position = Vector2(618, 294)
-frame_progress = 0.538346
-
 [node name="ship" parent="." instance=ExtResource("3_plpeq")]
 position = Vector2(3538, 12874)
 
 [node name="Ports" type="Node" parent="."]
+
+[node name="observatory" parent="Ports" instance=ExtResource("4_1rjlf")]
+position = Vector2(3721, 10802)
 
 [node name="city5-1" parent="Ports" instance=ExtResource("8_3j7t7")]
 position = Vector2(13625, 3023)
@@ -48,7 +49,8 @@ position = Vector2(4075, 13078)
 [node name="city3-2" parent="Ports" instance=ExtResource("8_3j7t7")]
 position = Vector2(8425, 5826)
 
-[node name="s1-5" type="Node" parent="."]
+[node name="ConstructionPlatform" parent="Ports" instance=ExtResource("5_rr0fa")]
+position = Vector2(1033, 1125)
 
 [node name="Nebulas" type="Node" parent="."]
 
@@ -135,3 +137,6 @@ position = Vector2(3078, 12557)
 
 [node name="gravity_well" parent="wormholes" instance=ExtResource("5_nr162")]
 position = Vector2(732, 13688)
+
+[node name="research" parent="." instance=ExtResource("12_5sonm")]
+position = Vector2(13270, 5645)

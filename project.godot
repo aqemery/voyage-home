@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Homeward Bubble: Cosmic Fuel"
+config/name="Voyage Home"
 run/main_scene="res://root.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -25,8 +25,8 @@ SignalManager="*res://singletons/signal_manager.gd"
 
 window/size/viewport_width=400
 window/size/viewport_height=240
-window/size/window_width_override=1600
-window/size/window_height_override=960
+window/size/window_width_override=800
+window/size/window_height_override=480
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 window/dpi/allow_hidpi=false
