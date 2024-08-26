@@ -38,11 +38,6 @@ func print_hit(group, x, y):
             print("enemy hit")
         "nebula":
             print("nebula hit")
-        "refuel":
-            print("refuel hit")
-            refuel.emit()
-        "player":
-            print("player hit")
         "sensor":
             print("sensor hit")
             activate_tower.emit(x, y)

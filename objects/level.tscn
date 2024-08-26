@@ -28,10 +28,11 @@ scale = Vector2(50, 50)
 texture = ExtResource("1_nsxt5")
 centered = false
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="ship" parent="." instance=ExtResource("3_plpeq")]
 position = Vector2(3538, 12874)
+
+[node name="Camera2D" type="Camera2D" parent="ship"]
+position = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="Ports" type="Node" parent="."]
 

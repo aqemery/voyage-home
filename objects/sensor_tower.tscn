@@ -180,7 +180,7 @@ radius = 15.0
 sprite_frames = SubResource("SpriteFrames_qkga7")
 animation = &"unpower"
 autoplay = "unpower"
-frame_progress = 0.677984
+frame_progress = 0.482218
 script = ExtResource("2_0t4kq")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["sensor"]]
