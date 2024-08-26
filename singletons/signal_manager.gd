@@ -14,7 +14,6 @@ signal collect_engineer
 signal collect_exobiologist
 signal activate_tower(x, y)
 signal collect_ore(x, y)
-signal collect_relic(x, y)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -41,9 +40,6 @@ func print_hit(group, x, y):
         "sensor":
             print("sensor hit")
             activate_tower.emit(x, y)
-        "ruin":
-            print("ruin hit")
-            collect_relic.emit(x, y)
         "wall":
             print("wall hit")
         "wormhole":

@@ -31,11 +31,14 @@ radius = 9.0
 [node name="ruin" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_w2m1y")
 autoplay = "default"
-frame_progress = 0.99783
+frame_progress = 0.712125
 script = ExtResource("2_a6te7")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["ruin"]]
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_qr1rc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
