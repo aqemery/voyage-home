@@ -4,13 +4,6 @@ extends AnimatedSprite2D
 @onready var connects = [$"connect-1", $"connect-2", $"connect-3"]
 var last_call = -1
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-    #tanks.map(func(t): t.autoplay = true)
-    pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
     var fuel = FuelManager.fuel
     if abs(last_call - fuel) < .05:
@@ -34,23 +27,3 @@ func _process(delta):
             t.play(str(a))
             
     last_call = fuel
-        
-        #if f >= 1:
-            #t.play("5")
-        #elif f >= 0.8:
-            #t.play("4")
-        #elif f >= 0.6:
-            #t.play("3")
-        #elif f >= 0.4:
-            #t.play("2")
-        #elif f >= 0.2:
-            #t.play("1")
-        #else:
-            #t.play("0")            
-        
-        
-    ##var current_tank = 
-    #
-    #tank_1.play(str(int(fuel)))
-    #pass
-    #

@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bfj4kgrq8i80s"]
+[gd_scene load_steps=15 format=3 uid="uid://bfj4kgrq8i80s"]
 
 [ext_resource type="Texture2D" uid="uid://dl5igueh5pb1p" path="res://images/construction.png" id="1_qsg5c"]
+[ext_resource type="Script" path="res://objects/construction_platform.gd" id="2_wnw5o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hg8nq"]
 atlas = ExtResource("1_qsg5c")
@@ -87,9 +88,13 @@ radius = 15.0
 sprite_frames = SubResource("SpriteFrames_y30ct")
 autoplay = "default"
 frame_progress = 0.674485
+script = ExtResource("2_wnw5o")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["construction", "refuel"]]
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_qr1rc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
