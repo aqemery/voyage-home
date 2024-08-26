@@ -9,6 +9,13 @@ signal wall_hit(x, y)
 signal low_fuel
 signal refuel
 
+signal collect_astronomer
+signal collect_engineer
+signal collect_exobiologist
+signal activate_tower(x, y)
+signal collect_ore(x, y)
+signal collect_relic(x, y)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,12 +45,17 @@ func print_hit(group, x, y):
             print("player hit")
         "sensor":
             print("sensor hit")
+            activate_tower.emit(x, y)
         "ruin":
             print("ruin hit")
+            collect_relic.emit(x, y)
         "wall":
             print("wall hit")
         "wormhole":
             print("wormhole hit")
+        "ore":
+            print("ore hit")
+            collect_ore.emit(x,y)
 
     pass
 

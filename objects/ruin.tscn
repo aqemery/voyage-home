@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxvbkbbgpq513"]
+[gd_scene load_steps=7 format=3 uid="uid://bxvbkbbgpq513"]
 
 [ext_resource type="Texture2D" uid="uid://c65q5twipj30x" path="res://images/ruins.png" id="1_7r17m"]
+[ext_resource type="Script" path="res://objects/ruin.gd" id="2_a6te7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e4trv"]
 atlas = ExtResource("1_7r17m")
@@ -30,7 +31,8 @@ radius = 9.0
 [node name="ruin" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_w2m1y")
 autoplay = "default"
-frame_progress = 0.690949
+frame_progress = 0.99783
+script = ExtResource("2_a6te7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["ruin"]]
 

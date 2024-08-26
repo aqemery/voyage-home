@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://ctas4gnlyv346"]
+[gd_scene load_steps=26 format=3 uid="uid://ctas4gnlyv346"]
 
 [ext_resource type="Texture2D" uid="uid://b18h5w78cq8xd" path="res://images/sensor_tower.png" id="1_ys5qb"]
+[ext_resource type="Script" path="res://objects/sensor_tower.gd" id="2_0t4kq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87r5e"]
 atlas = ExtResource("1_ys5qb")
@@ -179,9 +180,12 @@ radius = 15.0
 sprite_frames = SubResource("SpriteFrames_qkga7")
 animation = &"unpower"
 autoplay = "unpower"
-frame_progress = 0.874005
+frame_progress = 0.677984
+script = ExtResource("2_0t4kq")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["sensor"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_qr1rc")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

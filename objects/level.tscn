@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dhoyuwma1no8p"]
+[gd_scene load_steps=17 format=3 uid="uid://dhoyuwma1no8p"]
 
 [ext_resource type="Texture2D" uid="uid://dwqsryom40ky0" path="res://images/sectors.png" id="1_nsxt5"]
 [ext_resource type="PackedScene" uid="uid://jql6epjymvaq" path="res://sector_hazard/level_bounds.tscn" id="1_wvhr3"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bxvbkbbgpq513" path="res://objects/ruin.tscn" id="13_ckqsh"]
 [ext_resource type="PackedScene" uid="uid://cob5tewqnexfg" path="res://objects/help.tscn" id="13_tf511"]
 [ext_resource type="PackedScene" uid="uid://ctas4gnlyv346" path="res://objects/sensor_tower.tscn" id="14_i5bap"]
+[ext_resource type="PackedScene" uid="uid://d2d7c8g2kcgy8" path="res://objects/ore.tscn" id="16_l0y8v"]
 
 [node name="level" type="Node"]
 
@@ -146,6 +147,18 @@ position = Vector2(732, 13688)
 
 [node name="interact" type="Node" parent="."]
 
+[node name="sensor_tower" parent="interact" instance=ExtResource("14_i5bap")]
+position = Vector2(5978, 12925)
+
+[node name="sensor_tower2" parent="interact" instance=ExtResource("14_i5bap")]
+position = Vector2(3623, 3273)
+
+[node name="sensor_tower3" parent="interact" instance=ExtResource("14_i5bap")]
+position = Vector2(10777, 5624)
+
+[node name="sensor_tower4" parent="interact" instance=ExtResource("14_i5bap")]
+position = Vector2(3577, 8074)
+
 [node name="ruin" parent="interact" instance=ExtResource("13_ckqsh")]
 position = Vector2(1269, 15582)
 
@@ -167,14 +180,14 @@ position = Vector2(8272, 13171)
 [node name="help3" parent="interact" instance=ExtResource("13_tf511")]
 position = Vector2(8226, 1223)
 
-[node name="sensor_tower" parent="." instance=ExtResource("14_i5bap")]
-position = Vector2(5978, 12925)
+[node name="ore" parent="interact" instance=ExtResource("16_l0y8v")]
+position = Vector2(3420, 15776)
 
-[node name="sensor_tower2" parent="." instance=ExtResource("14_i5bap")]
-position = Vector2(3623, 3273)
+[node name="ore2" parent="interact" instance=ExtResource("16_l0y8v")]
+position = Vector2(6433, 10617)
 
-[node name="sensor_tower3" parent="." instance=ExtResource("14_i5bap")]
-position = Vector2(10777, 5624)
+[node name="ore3" parent="interact" instance=ExtResource("16_l0y8v")]
+position = Vector2(1239, 8419)
 
-[node name="sensor_tower4" parent="." instance=ExtResource("14_i5bap")]
-position = Vector2(3577, 8074)
+[node name="ore4" parent="interact" instance=ExtResource("16_l0y8v")]
+position = Vector2(5978, 3572)

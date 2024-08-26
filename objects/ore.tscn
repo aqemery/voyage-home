@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://d2d7c8g2kcgy8"]
+
+[ext_resource type="Texture2D" uid="uid://c5s8ljxgfuhq3" path="res://images/ore.png" id="1_xwjjn"]
+[ext_resource type="Script" path="res://objects/ore.gd" id="2_rvwcn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prffp"]
+atlas = ExtResource("1_xwjjn")
+region = Rect2(0, 0, 21, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kikr6"]
+atlas = ExtResource("1_xwjjn")
+region = Rect2(21, 0, 21, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lns1"]
+atlas = ExtResource("1_xwjjn")
+region = Rect2(42, 0, 21, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghprb"]
+atlas = ExtResource("1_xwjjn")
+region = Rect2(63, 0, 21, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epcgg"]
+atlas = ExtResource("1_xwjjn")
+region = Rect2(84, 0, 21, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52snd"]
+atlas = ExtResource("1_xwjjn")
+region = Rect2(105, 0, 21, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drh0g"]
+atlas = ExtResource("1_xwjjn")
+region = Rect2(126, 0, 21, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yv3pq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prffp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kikr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lns1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghprb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epcgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52snd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drh0g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qr1rc"]
+radius = 7.0
+
+[node name="ore" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_yv3pq")
+autoplay = "default"
+frame_progress = 0.0220182
+script = ExtResource("2_rvwcn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["ore"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["ore"]]
+shape = SubResource("CircleShape2D_qr1rc")
