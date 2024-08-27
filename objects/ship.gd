@@ -15,6 +15,7 @@ var thrust = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+    SignalManager.warp.connect(warp)
     radius = area_col.shape.radius
     area = circle_area(radius)
     _draw()
@@ -136,3 +137,15 @@ func _on_rigid_body_2d_body_entered(body):
 
 func _on_timer_timeout():
      ObjectMaker.make_breadcrumb(global_position)
+
+func warp(pos:Vector2):
+    #rigid_body_2d.freeze = true
+    #global_position = pos
+    #rigid_body_2d.linear_velocity = Vector2.ZERO
+    #rigid_body_2d.gravity_scale = 0
+    #await get_tree().create_timer(2).timeout
+    #rigid_body_2d.gravity_scale = 1
+    #rigid_body_2d.freeze = false
+    pass
+    
+    

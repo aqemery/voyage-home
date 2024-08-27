@@ -137,6 +137,9 @@ position = Vector2(15932, 12714)
 [node name="gravity_well2" parent="wormholes" instance=ExtResource("5_nr162")]
 position = Vector2(14975, 570)
 
+[node name="Marker2D" type="Marker2D" parent="wormholes/gravity_well2"]
+position = Vector2(987, 12157)
+
 [node name="gravity_push" parent="wormholes" instance=ExtResource("7_4447a")]
 position = Vector2(8427, 15488)
 
@@ -145,6 +148,9 @@ position = Vector2(3078, 12557)
 
 [node name="gravity_well" parent="wormholes" instance=ExtResource("5_nr162")]
 position = Vector2(732, 13688)
+
+[node name="Marker2D" type="Marker2D" parent="wormholes/gravity_well"]
+position = Vector2(7692, 1800)
 
 [node name="interact" type="Node" parent="."]
 

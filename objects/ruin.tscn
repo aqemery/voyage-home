@@ -31,7 +31,7 @@ radius = 9.0
 [node name="ruin" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_w2m1y")
 autoplay = "default"
-frame_progress = 0.125184
+frame_progress = 0.855639
 script = ExtResource("2_a6te7")
 
 [node name="Area2D" type="Area2D" parent="."]

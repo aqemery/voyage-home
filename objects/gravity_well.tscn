@@ -27,7 +27,10 @@ shape = SubResource("CircleShape2D_xmchq")
 [node name="wormhole" parent="." instance=ExtResource("2_k0x43")]
 position = Vector2(-1, 4)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["wormhole"]]
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_o8keh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

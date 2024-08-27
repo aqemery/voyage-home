@@ -66,10 +66,13 @@ radius = 7.0
 [node name="ore" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_yv3pq")
 autoplay = "default"
-frame_progress = 0.0220182
+frame_progress = 0.683416
 script = ExtResource("2_rvwcn")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["ore"]]
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["ore"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_qr1rc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

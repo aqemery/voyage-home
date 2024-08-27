@@ -3,7 +3,10 @@ var radius
 
 @onready var collision_shape_2d = $CollisionShape2D
 
+var marker: Marker2D
+
 func _ready():
+    marker = find_child("Marker2D")
     radius = collision_shape_2d.shape.radius
 
 func _physics_process(delta):
@@ -33,6 +36,5 @@ func _draw():
         draw_arc(Vector2.ZERO, value(radius + (2*cr/3)), start, angle, 10, Color.BLACK)
         angle += step
 
-
-    
-
+func _on_area_2d_body_entered(body):
+    SignalManager.warp.emit(marker.global_position)
