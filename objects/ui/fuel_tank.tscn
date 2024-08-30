@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b3phssckxxih"]
 
 [ext_resource type="Texture2D" uid="uid://g2n33bcg2ovj" path="res://images/engine.png" id="1_f86ll"]
-[ext_resource type="Script" path="res://objects/fuel_tank.gd" id="2_00lii"]
-[ext_resource type="SpriteFrames" uid="uid://bnibscjbj0sby" path="res://resources/fuel.tres" id="3_foxim"]
+[ext_resource type="Script" path="res://objects/ui/fuel_tank.gd" id="2_00lii"]
+[ext_resource type="SpriteFrames" uid="uid://bnibscjbj0sby" path="res://objects/ui/fuel.tres" id="3_foxim"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3obft"]
 atlas = ExtResource("1_f86ll")

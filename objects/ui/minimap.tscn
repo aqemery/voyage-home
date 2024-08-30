@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ct03l2lvnnrdq"]
 
 [ext_resource type="Texture2D" uid="uid://dwqsryom40ky0" path="res://images/sectors.png" id="1_gn1on"]
-[ext_resource type="Script" path="res://objects/minimap.gd" id="1_wcvgi"]
+[ext_resource type="Script" path="res://objects/ui/minimap.gd" id="1_wcvgi"]
 [ext_resource type="Script" path="res://objects/positon.gd" id="3_b4p3c"]
 
 [node name="Minimap" type="Node2D"]

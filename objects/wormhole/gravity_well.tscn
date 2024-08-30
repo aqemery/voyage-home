@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvmf1a2rfl5ok"]
 
-[ext_resource type="Script" path="res://objects/gravity_well.gd" id="1_3fef5"]
+[ext_resource type="Script" path="res://objects/wormhole/gravity_well.gd" id="1_3fef5"]
 [ext_resource type="PackedScene" uid="uid://ddhyaqvpyuxlr" path="res://objects/wormhole.tscn" id="2_k0x43"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xmchq"]

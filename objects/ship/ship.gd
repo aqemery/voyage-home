@@ -6,7 +6,7 @@ class_name Ship
 @onready var rigid_body_2d = $RigidBody2D
 @onready var timer = $Timer
 
-var ship_body = preload("res://ship_body.tscn")
+var ship_body = preload("res://objects/ship/ship_body.tscn")
 var max_speed = 100
 var radius
 var area
@@ -95,7 +95,7 @@ func _on_timer_timeout():
 func warp(pos:Vector2):
     var lv = rigid_body_2d.linear_velocity
     rigid_body_2d.queue_free()
-    var effect = load("res://warp-effect.tscn").instantiate()
+    var effect = load("res://effects/warp-effect.tscn").instantiate()
     get_tree().root.add_child(effect)
 
     await get_tree().create_timer(1.5).timeout
