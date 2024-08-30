@@ -7,9 +7,9 @@ func _ready():
     radius = collision_shape_2d.shape.radius
 
 func _physics_process(delta):
-    radius -= delta * 50
-    if radius < 0:
-        radius = collision_shape_2d.shape.radius
+    radius += delta * 50
+    if radius > collision_shape_2d.shape.radius:
+        radius = 0
     queue_redraw()
     
 func value(r):

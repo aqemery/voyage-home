@@ -1,34 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://bo5awully4anc"]
 
 [ext_resource type="Script" path="res://objects/ship.gd" id="1_jcg3e"]
+[ext_resource type="PackedScene" path="res://ship_body.tscn" id="2_2odi4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5yxde"]
 resource_local_to_scene = true
 radius = 9.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_x7bg3"]
-resource_local_to_scene = true
-radius = 8.0
-
 [node name="ship" type="Area2D"]
 collision_layer = 0
 collision_mask = 3
-input_pickable = false
 script = ExtResource("1_jcg3e")
 
 [node name="area_col" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5yxde")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-collision_layer = 2
-can_sleep = false
-continuous_cd = 1
-max_contacts_reported = 1
-contact_monitor = true
-
-[node name="physics_col" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("CircleShape2D_x7bg3")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="draw" from="area_col" to="." method="_on_collision_shape_2d_draw"]
-[connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]
+[node name="RigidBody2D" parent="." instance=ExtResource("2_2odi4")]
