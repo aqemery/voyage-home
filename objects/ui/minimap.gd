@@ -1,14 +1,13 @@
 extends Node2D
 
-@onready var sectors = $Sectors
-
+@onready var sectors = $"SubViewportContainer/SubViewport/minimap-level"
 var x = 0
 var y = 0
 
+var origin_f = Vector2(0, -3)
+
 func _ready():
-    SignalManager.player_moved.connect(update_region)
-    sectors.region_rect = Rect2(Vector2(100, 100), Vector2(52, 48))
-    
+    SignalManager.player_moved.connect(update_region)    
     
 func update_region(v: Vector2):
-    sectors.region_rect = Rect2(v / 50 - Vector2(26 - 51, 24 - 52), Vector2(52, 48))
+    sectors.position = origin_f - (v / 50)  - Vector2(26 - 51, 24 - 52)

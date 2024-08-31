@@ -14,6 +14,9 @@ signal collect_astronomer
 signal collect_engineer
 signal collect_exobiologist
 
+signal activate_tower(id)
+signal collect_ore(id)
+
 
 func _ready():
     player_hit.connect(print_hit)
