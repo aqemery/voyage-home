@@ -1,20 +1,20 @@
 extends AnimatedSprite2D
 
-enum VipType { 
-    engineer,
-    astronomer,
-    exobiologist
+enum VipType {
+    ENGINEER,
+    ASTRONOMER,
+    EXOBIOLOGIST,
 }
 
-@export var vip_type:VipType
+@export var vip_type: VipType
 
 func _on_area_2d_body_entered(body):
     match vip_type:
-        VipType.engineer:
+        VipType.ENGINEER:
             Inventory.engineer = true
-        VipType.astronomer:
+        VipType.ASTRONOMER:
             Inventory.astronomer = true
-        VipType.exobiologist:
+        VipType.EXOBIOLOGIST:
             Inventory.exobiologist = true
     prints(vip_type, "collected")
     queue_free()

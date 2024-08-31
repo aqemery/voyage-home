@@ -32,8 +32,8 @@ func _draw():
         var start = angle
         angle += step
         draw_arc(Vector2.ZERO, radius, start, angle, 10, Color.BLACK)
-        draw_arc(Vector2.ZERO, value(radius + (cr/3)), start, angle, 10, Color.BLACK)
-        draw_arc(Vector2.ZERO, value(radius + (2*cr/3)), start, angle, 10, Color.BLACK)
+        draw_arc(Vector2.ZERO, value(radius + (cr / 3)), start, angle, 10, Color.BLACK)
+        draw_arc(Vector2.ZERO, value(radius + (2 * cr / 3)), start, angle, 10, Color.BLACK)
         angle += step
 
 func _on_area_2d_body_entered(body):

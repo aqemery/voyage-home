@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbeouesj1r0r4"]
+[gd_scene load_steps=9 format=3 uid="uid://bbeouesj1r0r4"]
 
 [ext_resource type="Texture2D" uid="uid://doeacjsmd0ybv" path="res://images/research.png" id="1_ik8r1"]
+[ext_resource type="Script" path="res://objects/stations/research.gd" id="2_hnmbj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_likfg"]
 atlas = ExtResource("1_ik8r1")
@@ -44,10 +45,13 @@ radius = 15.0
 [node name="research" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_p4g0n")
 autoplay = "default"
+script = ExtResource("2_hnmbj")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["refuel", "research"]]
-position = Vector2(2, 0)
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1, -1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_qr1rc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

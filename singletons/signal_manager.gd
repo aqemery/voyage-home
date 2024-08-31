@@ -15,17 +15,9 @@ signal collect_engineer
 signal collect_exobiologist
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
     player_hit.connect(print_hit)
     low_fuel.connect(print_low_fuel)
-
-    #pass # Replace with function body.
-#
-#
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-    #pass
 
 func print_hit(group, x, y):
     prints("ship hit", group, "at", x, y)
@@ -38,9 +30,6 @@ func print_hit(group, x, y):
             print("nebula hit")
         "wall":
             print("wall hit")
-        "wormhole":
-            print("wormhole hit")
-    pass
 
 func print_low_fuel():
     print("low fuel!")

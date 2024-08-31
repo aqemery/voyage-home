@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://j3v5wkol0mhv"]
+[gd_scene load_steps=18 format=3 uid="uid://j3v5wkol0mhv"]
 
 [ext_resource type="Texture2D" uid="uid://qcse2u7ycxwp" path="res://images/observatory.png" id="1_ntgxq"]
+[ext_resource type="Script" path="res://objects/stations/observatory.gd" id="2_lu0i5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qw1j8"]
 atlas = ExtResource("1_ntgxq")
@@ -108,9 +109,13 @@ radius = 10.0499
 sprite_frames = SubResource("SpriteFrames_tvsc0")
 autoplay = "default"
 frame_progress = 0.257293
+script = ExtResource("2_lu0i5")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["observatory", "refuel"]]
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_qr1rc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

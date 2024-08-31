@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://ctas4gnlyv346"]
 
 [ext_resource type="Texture2D" uid="uid://b18h5w78cq8xd" path="res://images/sensor_tower.png" id="1_ys5qb"]
-[ext_resource type="Script" path="res://objects/sensor_tower.gd" id="2_0t4kq"]
+[ext_resource type="Script" path="res://objects/interact/sensor_tower.gd" id="2_0t4kq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87r5e"]
 atlas = ExtResource("1_ys5qb")

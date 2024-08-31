@@ -92,7 +92,7 @@ func _on_rigid_body_2d_body_entered(body):
 func _on_timer_timeout():
      ObjectMaker.make_breadcrumb(global_position)
 
-func warp(pos:Vector2):
+func warp(pos: Vector2):
     var lv = rigid_body_2d.linear_velocity
     rigid_body_2d.queue_free()
     var effect = load("res://effects/warp-effect.tscn").instantiate()
@@ -105,5 +105,3 @@ func warp(pos:Vector2):
     global_position = pos
     rigid_body_2d.linear_velocity = lv
     add_child(rigid_body_2d)
-
-    

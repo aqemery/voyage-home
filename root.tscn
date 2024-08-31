@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b3phssckxxih" path="res://objects/ui/fuel_tank.tscn" id="2_f2qpi"]
 [ext_resource type="Texture2D" uid="uid://ckft882y7le3y" path="res://images/frame.png" id="3_sdqvu"]
-[ext_resource type="PackedScene" uid="uid://dhoyuwma1no8p" path="res://objects/level.tscn" id="4_sj4qr"]
+[ext_resource type="PackedScene" uid="uid://dhoyuwma1no8p" path="res://level.tscn" id="4_sj4qr"]
 [ext_resource type="PackedScene" uid="uid://ct03l2lvnnrdq" path="res://objects/ui/minimap.tscn" id="5_6o5gn"]
 
 [sub_resource type="GDScript" id="GDScript_tbtgi"]
