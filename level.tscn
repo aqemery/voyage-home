@@ -188,7 +188,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="level" type="Node"]
+[node name="level" type="Node2D"]
 
 [node name="level_bounds" parent="." instance=ExtResource("1_wvhr3")]
 
