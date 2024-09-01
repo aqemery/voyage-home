@@ -1,6 +1,10 @@
 extends Node2D
 
 var state = false
+
+func _ready() -> void:
+    SignalManager.player_moved.connect(update_region)
+    pass
     
 func _draw():
     match state:
@@ -12,3 +16,6 @@ func _draw():
 
 func _on_timer_timeout():
     queue_redraw()
+    
+func update_region(v: Vector2):
+    position = v / 50

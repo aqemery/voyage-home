@@ -203,6 +203,10 @@ position = Vector2(3538, 12874)
 
 [node name="Camera2D" type="Camera2D" parent="ship"]
 position = Vector2(2.08165e-12, 2.08165e-12)
+limit_left = 0
+limit_top = 0
+limit_right = 16850
+limit_bottom = 16850
 
 [node name="Ports" type="Node" parent="."]
 

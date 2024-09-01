@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3kj1cx4hg2pf"
-path="res://.godot/imported/map_frame.png-b219349bcc5fd9c08fb815514b02edd2.ctex"
+uid="uid://cjwpsuamxpqhw"
+path="res://.godot/imported/sectors-hidden-export.png-e3b590be06a83179a23f08494697a65b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/map_frame.png"
-dest_files=["res://.godot/imported/map_frame.png-b219349bcc5fd9c08fb815514b02edd2.ctex"]
+source_file="res://images/sectors-hidden-export.png"
+dest_files=["res://.godot/imported/sectors-hidden-export.png-e3b590be06a83179a23f08494697a65b.ctex"]
 
 [params]
 
