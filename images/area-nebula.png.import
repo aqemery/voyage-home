@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjwpsuamxpqhw"
-path="res://.godot/imported/sectors-hidden-export.png-e3b590be06a83179a23f08494697a65b.ctex"
+uid="uid://bt4i7unk0ku44"
+path="res://.godot/imported/area-nebula.png-4118942945a300e7b9e93ad92b7a89ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sectors-hidden-export.png"
-dest_files=["res://.godot/imported/sectors-hidden-export.png-e3b590be06a83179a23f08494697a65b.ctex"]
+source_file="res://images/area-nebula.png"
+dest_files=["res://.godot/imported/area-nebula.png-4118942945a300e7b9e93ad92b7a89ae.ctex"]
 
 [params]
 

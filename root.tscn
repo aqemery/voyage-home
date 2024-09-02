@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://cak3wdahbglks"]
+[gd_scene load_steps=13 format=3 uid="uid://cak3wdahbglks"]
 
 [ext_resource type="PackedScene" uid="uid://d1yx2slvja0jt" path="res://objects/ui/minimap_level.tscn" id="1_8nl68"]
 [ext_resource type="Script" path="res://root.gd" id="1_uwv17"]
 [ext_resource type="PackedScene" uid="uid://b3phssckxxih" path="res://objects/ui/fuel_tank.tscn" id="2_f2qpi"]
 [ext_resource type="Texture2D" uid="uid://ckft882y7le3y" path="res://images/frame.png" id="3_sdqvu"]
 [ext_resource type="PackedScene" uid="uid://dhoyuwma1no8p" path="res://level.tscn" id="4_sj4qr"]
+[ext_resource type="PackedScene" uid="uid://c8ws7mjm34ayw" path="res://nebuala.tscn" id="5_pbeel"]
 [ext_resource type="Texture2D" uid="uid://dd7a662b0jiho" path="res://images/sectors-hidden.png" id="6_gtwou"]
 [ext_resource type="Shader" path="res://objects/ui/fog.gdshader" id="6_mdw23"]
 [ext_resource type="Script" path="res://objects/ui/fog.gd" id="7_madym"]
-[ext_resource type="Script" path="res://camera_2d.gd" id="10_cn84a"]
+[ext_resource type="Script" path="res://objects/ui/mini_map_scripts/camera_2d.gd" id="10_cn84a"]
 [ext_resource type="Script" path="res://objects/ui/positon.gd" id="11_hygoc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t7mj1"]
@@ -65,6 +66,8 @@ texture_filter = 1
 
 [node name="minimap-level" parent="mapContainer/mapViewport/map/Node2D" instance=ExtResource("1_8nl68")]
 texture_filter = 1
+
+[node name="nebuala" parent="mapContainer/mapViewport/map" instance=ExtResource("5_pbeel")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="mapContainer/mapViewport/map"]
 offset_right = 337.0
