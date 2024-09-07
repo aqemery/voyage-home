@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dhoyuwma1no8p"]
+[gd_scene load_steps=39 format=3 uid="uid://dhoyuwma1no8p"]
 
 [ext_resource type="Texture2D" uid="uid://dwqsryom40ky0" path="res://images/sectors.png" id="1_nsxt5"]
 [ext_resource type="PackedScene" uid="uid://jql6epjymvaq" path="res://sector_hazard/level_bounds.tscn" id="1_wvhr3"]
@@ -6,16 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://j3v5wkol0mhv" path="res://objects/stations/observatory.tscn" id="4_1rjlf"]
 [ext_resource type="PackedScene" uid="uid://bvmf1a2rfl5ok" path="res://objects/wormhole/gravity_well.tscn" id="5_nr162"]
 [ext_resource type="PackedScene" uid="uid://bfj4kgrq8i80s" path="res://objects/stations/construction_platform.tscn" id="5_rr0fa"]
-[ext_resource type="PackedScene" uid="uid://df6h2p5lgbmqd" path="res://sector_hazard/enemy.tscn" id="6_153ee"]
-[ext_resource type="PackedScene" uid="uid://jtnqlgpyj3ve" path="res://sector_hazard/nebula.tscn" id="6_sqw2p"]
 [ext_resource type="PackedScene" uid="uid://cc6xhoijoxgjp" path="res://objects/wormhole/gravity_push.tscn" id="7_4447a"]
 [ext_resource type="PackedScene" uid="uid://mkmkg6tdcxjf" path="res://objects/stations/city.tscn" id="8_3j7t7"]
-[ext_resource type="PackedScene" uid="uid://cwpug41afcile" path="res://sector_hazard/asteroid.tscn" id="8_5x2c6"]
 [ext_resource type="PackedScene" uid="uid://bbeouesj1r0r4" path="res://objects/stations/research.tscn" id="12_5sonm"]
 [ext_resource type="PackedScene" uid="uid://bxvbkbbgpq513" path="res://objects/interact/ruin.tscn" id="13_ckqsh"]
 [ext_resource type="PackedScene" uid="uid://cob5tewqnexfg" path="res://objects/interact/help.tscn" id="13_tf511"]
 [ext_resource type="PackedScene" uid="uid://ctas4gnlyv346" path="res://objects/interact/sensor_tower.tscn" id="14_i5bap"]
 [ext_resource type="Texture2D" uid="uid://b18h5w78cq8xd" path="res://images/sensor_tower.png" id="14_q33if"]
+[ext_resource type="Texture2D" uid="uid://bt4i7unk0ku44" path="res://images/area-nebula.png" id="15_ofbfc"]
+[ext_resource type="Script" path="res://nebula.gd" id="16_3633s"]
 [ext_resource type="PackedScene" uid="uid://d2d7c8g2kcgy8" path="res://objects/interact/ore.tscn" id="16_l0y8v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87r5e"]
@@ -234,75 +233,6 @@ position = Vector2(1033, 1125)
 [node name="research" parent="Ports" instance=ExtResource("12_5sonm")]
 position = Vector2(13270, 5645)
 
-[node name="Nebulas" type="Node" parent="."]
-
-[node name="nebula5-3" parent="Nebulas" instance=ExtResource("6_sqw2p")]
-position = Vector2(12040, 7224)
-
-[node name="nebula6-3" parent="Nebulas" instance=ExtResource("6_sqw2p")]
-position = Vector2(9632, 7224)
-
-[node name="nebula4-3" parent="Nebulas" instance=ExtResource("6_sqw2p")]
-position = Vector2(14448, 7224)
-
-[node name="nebula3-3" parent="Nebulas" instance=ExtResource("6_sqw2p")]
-position = Vector2(7224, 7224)
-
-[node name="nebula1-2" parent="Nebulas" instance=ExtResource("6_sqw2p")]
-position = Vector2(2408, 4816)
-
-[node name="Asteroids" type="Node" parent="."]
-
-[node name="asteroid4-6" parent="Asteroids" instance=ExtResource("8_5x2c6")]
-position = Vector2(9632, 14448)
-
-[node name="asteroid5-6" parent="Asteroids" instance=ExtResource("8_5x2c6")]
-position = Vector2(12040, 14448)
-
-[node name="asteroid4-0" parent="Asteroids" instance=ExtResource("8_5x2c6")]
-position = Vector2(9632, 4.1633e-12)
-
-[node name="asteroid4-4" parent="Asteroids" instance=ExtResource("8_5x2c6")]
-position = Vector2(9632, 9632)
-
-[node name="asteroid4-5" parent="Asteroids" instance=ExtResource("8_5x2c6")]
-position = Vector2(9632, 12040)
-
-[node name="Enemies" type="Node" parent="."]
-
-[node name="enemy5-0" parent="Enemies" instance=ExtResource("6_153ee")]
-position = Vector2(12040, 0)
-
-[node name="enemy6-1" parent="Enemies" instance=ExtResource("6_153ee")]
-position = Vector2(14448, 2408)
-
-[node name="enemy6-2" parent="Enemies" instance=ExtResource("6_153ee")]
-position = Vector2(14448, 4816)
-
-[node name="enemy4-1" parent="Enemies" instance=ExtResource("6_153ee")]
-position = Vector2(9632, 2408)
-
-[node name="enemy3-1" parent="Enemies" instance=ExtResource("6_153ee")]
-position = Vector2(7224, 2408)
-
-[node name="enemy0-1" parent="Enemies" instance=ExtResource("6_153ee")]
-position = Vector2(2.08165e-12, 2408)
-
-[node name="enemy0-2" parent="Enemies" instance=ExtResource("6_153ee")]
-position = Vector2(0, 4816)
-
-[node name="enemy2-6" parent="Enemies" instance=ExtResource("6_153ee")]
-position = Vector2(4824, 14426)
-
-[node name="enemy6-4" parent="Enemies" instance=ExtResource("6_153ee")]
-position = Vector2(14448, 9632)
-
-[node name="enemy5-5" parent="Enemies" instance=ExtResource("6_153ee")]
-position = Vector2(12040, 12040)
-
-[node name="enemy5-6" parent="Enemies" instance=ExtResource("6_153ee")]
-position = Vector2(14448, 14448)
-
 [node name="wormholes" type="Node" parent="."]
 
 [node name="gravity_push2" parent="wormholes" instance=ExtResource("7_4447a")]
@@ -390,3 +320,25 @@ id = 2
 [node name="ore4" parent="interact" instance=ExtResource("16_l0y8v")]
 position = Vector2(5978, 3572)
 id = 1
+
+[node name="Area-nebula" type="Sprite2D" parent="."]
+scale = Vector2(50, 50)
+texture = ExtResource("15_ofbfc")
+centered = false
+
+[node name="nebula bounds" type="Area2D" parent="."]
+collision_mask = 3
+script = ExtResource("16_3633s")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="nebula bounds"]
+polygon = PackedVector2Array(16810, 12298, 15825, 11880, 14418, 10546, 13876, 9914, 12004, 9965, 10872, 10069, 10224, 10106, 9682, 9977, 9307, 10140, 8570, 10735, 7739, 10743, 7221, 10469, 6787, 9656, 6522, 9089, 6604, 7774, 7061, 7123, 7543, 6929, 8137, 6915, 8451, 6644, 8959, 6627, 9338, 6270, 9901, 6201, 10263, 6283, 10555, 6520, 10973, 6520, 11252, 6223, 11795, 6137, 12285, 6137, 12638, 6434, 13099, 6847, 13363, 6835, 13673, 6616, 14068, 6582, 14073, 5860, 14684, 5236, 15244, 4896, 15821, 4754, 16839, 4333, 16811.6, 11854.4)
+
+[node name="nebula" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="nebula" type="CollisionPolygon2D" parent="nebula"]
+polygon = PackedVector2Array(16838, 11849, 16079, 11734, 14033, 9646, 13280, 9653, 12940, 9520, 12651, 9542, 12369, 9650, 11306, 9666, 11094, 9849, 9969, 9854, 9786, 9646, 9515, 9644, 8618, 10257, 8328, 10521, 7767, 10540, 7187, 9945, 7122, 9261, 6864, 9019, 6867, 8416, 6973, 7740, 7380, 7310, 8317, 7216, 8543, 7002, 8896, 6920, 9167, 6817, 9554, 6508, 10107, 6501, 10400, 6875, 11078, 6798, 11460, 6400, 12189, 6407, 12926, 7078, 13432, 7097, 13564, 6900, 14336, 6903, 14459, 6000, 15365, 5205, 16073, 5145, 16566, 4712, 16837, 4703)
+
+[connection signal="body_entered" from="nebula bounds" to="ship" method="_entered_nebula"]
+[connection signal="body_entered" from="nebula bounds" to="nebula bounds" method="_on_body_entered"]
+[connection signal="body_entered" from="nebula" to="ship" method="_get_lost"]

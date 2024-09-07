@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://b58grslkib651"]
+
+[ext_resource type="FontFile" uid="uid://baoxy4sof1yq8" path="res://themevck-text.ttf" id="1_a5x0q"]
+[ext_resource type="Script" path="res://info.gd" id="1_vg323"]
+[ext_resource type="Texture2D" uid="uid://pa4tvodo4ouk" path="res://images/text-frame.png" id="2_1s1bf"]
+[ext_resource type="Texture2D" uid="uid://ca1ddq8kqdbpm" path="res://images/portrait-frame.png" id="3_kqb2w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xgmd6"]
+font = ExtResource("1_a5x0q")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[node name="info" type="Node2D"]
+script = ExtResource("1_vg323")
+
+[node name="Text-frame" type="Sprite2D" parent="."]
+position = Vector2(231.5, 207)
+scale = Vector2(1.04264, 1)
+texture = ExtResource("2_1s1bf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 96.0
+offset_top = 184.0
+offset_right = 362.0
+offset_bottom = 229.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 101.0
+offset_top = 186.0
+offset_right = 367.0
+offset_bottom = 228.0
+text = "I heard some talk about an obervatory in a sector nearby... 
+sfasdfasdf"
+label_settings = SubResource("LabelSettings_xgmd6")
+autowrap_mode = 3
+
+[node name="Portrait-frame" type="Sprite2D" parent="."]
+position = Vector2(66, 206)
+texture = ExtResource("3_kqb2w")

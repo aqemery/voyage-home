@@ -105,3 +105,13 @@ func warp(pos: Vector2):
     global_position = pos
     rigid_body_2d.linear_velocity = lv
     add_child(rigid_body_2d)
+
+
+func _entered_nebula(body: Node2D) -> void:
+    rigid_body_2d.linear_velocity = Vector2.ZERO
+    pass # Replace with function body.
+
+
+func _get_lost(body: Node2D) -> void:
+    FuelManager.fuel = 0
+    pass # Replace with function body.

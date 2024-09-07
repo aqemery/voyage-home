@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cak3wdahbglks"]
+[gd_scene load_steps=14 format=3 uid="uid://cak3wdahbglks"]
 
 [ext_resource type="PackedScene" uid="uid://d1yx2slvja0jt" path="res://objects/ui/minimap_level.tscn" id="1_8nl68"]
 [ext_resource type="Script" path="res://root.gd" id="1_uwv17"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://objects/ui/fog.gd" id="7_madym"]
 [ext_resource type="Script" path="res://objects/ui/mini_map_scripts/camera_2d.gd" id="10_cn84a"]
 [ext_resource type="Script" path="res://objects/ui/positon.gd" id="11_hygoc"]
+[ext_resource type="PackedScene" uid="uid://b58grslkib651" path="res://info.tscn" id="12_yisfn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t7mj1"]
 shader = ExtResource("6_mdw23")
@@ -105,5 +106,8 @@ script = ExtResource("10_cn84a")
 [node name="Timer" type="Timer" parent="mapContainer/mapViewport/map"]
 wait_time = 0.5
 autostart = true
+
+[node name="info" parent="." instance=ExtResource("12_yisfn")]
+position = Vector2(27, -1)
 
 [connection signal="timeout" from="mapContainer/mapViewport/map/Timer" to="mapContainer/mapViewport/map/positon" method="_on_timer_timeout"]
