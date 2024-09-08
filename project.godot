@@ -21,6 +21,7 @@ FuelManager="*res://singletons/fuel_manager.gd"
 ObjectMaker="*res://singletons/object_maker.gd"
 SignalManager="*res://singletons/signal_manager.gd"
 Inventory="*res://singletons/inventory.gd"
+DialogManager="*res://singletons/dialog_manager.gd"
 
 [display]
 
