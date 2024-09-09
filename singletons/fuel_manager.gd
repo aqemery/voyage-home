@@ -14,7 +14,5 @@ func _physics_process(delta):
         
 func refuel():
     fuel = 4
-    await DialogManager.show_dialog("Fuel refilled!").done
+    await DialogManager.show_dialog("Fuel refilled!")
     fuel_can_warn = true
-    
-        

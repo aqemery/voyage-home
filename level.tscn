@@ -198,9 +198,11 @@ texture = ExtResource("1_nsxt5")
 centered = false
 
 [node name="ship" parent="." instance=ExtResource("3_plpeq")]
+process_mode = 1
 position = Vector2(3538, 12874)
 
 [node name="Camera2D" type="Camera2D" parent="ship"]
+process_mode = 3
 position = Vector2(2.08165e-12, 2.08165e-12)
 limit_left = 0
 limit_top = 0

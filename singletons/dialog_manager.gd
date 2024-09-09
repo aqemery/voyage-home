@@ -3,12 +3,12 @@ class_name dialog_manager
 
 const DIALOG = preload("res://dialog.tscn")
 
-func show_dialog(text: String) -> Dialog:
+func show_dialog(text: String):
     var b = DIALOG.instantiate()
     #call_add_child(b)
     get_tree().root.add_child(b)
     b.display_text(text)
-    return b
+    await b.done
     
     
 

@@ -15,8 +15,10 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t7mj1"]
 shader = ExtResource("6_mdw23")
 shader_parameter/point = Vector2(30, 30)
+shader_parameter/max_distance = 0.05
 
 [node name="Root" type="Node2D"]
+process_mode = 3
 texture_filter = 1
 script = ExtResource("1_uwv17")
 
@@ -31,6 +33,7 @@ process_mode = 3
 position = Vector2(7, 61)
 
 [node name="mainContainer" type="SubViewportContainer" parent="."]
+process_mode = 3
 offset_left = 64.0
 offset_top = 5.0
 offset_right = 395.0
@@ -84,6 +87,7 @@ size = Vector2i(337, 337)
 render_target_update_mode = 4
 
 [node name="fog" type="Sprite2D" parent="mapContainer/mapViewport/map/SubViewportContainer/SubViewport"]
+process_mode = 3
 material = SubResource("ShaderMaterial_t7mj1")
 texture = ExtResource("6_gtwou")
 centered = false

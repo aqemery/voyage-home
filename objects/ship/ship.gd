@@ -99,7 +99,7 @@ func warp(pos: Vector2):
     get_tree().root.add_child(effect)
 
     await get_tree().create_timer(1.5).timeout
-    effect.queue_free()    
+    effect.queue_free()
     rigid_body_2d = ship_body.instantiate()
     global_position = pos
     rigid_body_2d.linear_velocity = lv
@@ -108,6 +108,8 @@ func warp(pos: Vector2):
 
 func _entered_nebula(body: Node2D) -> void:
     rigid_body_2d.linear_velocity = Vector2.ZERO
+    await DialogManager.show_dialog("Emergency stop, uncharted nebuala ahead.")
+
     pass # Replace with function body.
 
 
