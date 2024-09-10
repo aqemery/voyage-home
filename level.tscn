@@ -216,9 +216,11 @@ position = Vector2(3721, 10802)
 
 [node name="city5-1" parent="Ports" instance=ExtResource("8_3j7t7")]
 position = Vector2(13625, 3023)
+clues = Array[String](["Rumor has it there is a wormhole in s6-0 that leads to a hidden sector. I wonder what's on the other side?", "I would avoid the asteroid field in s4-0. It's a dangerous place to fly through without the right equipment.", "There are a lot of dangerous ships in the area. Be careful out there.", "The alien ship is the area use a strange language. Maybe you could find a translator at the research station?"])
 
 [node name="city2-0" parent="Ports" instance=ExtResource("8_3j7t7")]
 position = Vector2(6077, 1327)
+clues = Array[String](["I overhead some people talking about a distress signal coming from s3-0. Maybe you could check it out?", "Be careful flying around, there are some dangerous ship in the area.", "Have you been to the construction plantform in s0-0? It's a great place to get some work done on your ship.", "Last time I was passing through s1-1 I saw this really interesting looking station. Why don't you check it out?"])
 
 [node name="city2-3" parent="Ports" instance=ExtResource("8_3j7t7")]
 position = Vector2(5527, 8525)
@@ -228,6 +230,7 @@ position = Vector2(4075, 13078)
 
 [node name="city3-2" parent="Ports" instance=ExtResource("8_3j7t7")]
 position = Vector2(8425, 5826)
+clues = Array[String](["Watch out for the nebula in the sectors below us. It's a dangerous place to fly through without the right equipment.", "If you're looking for some info on the alien ruins that are nearby, I heard to the reasearch station two sectors over.", "Be careful flying around, there are some dangerous ships in the sectors above us."])
 
 [node name="ConstructionPlatform" parent="Ports" instance=ExtResource("5_rr0fa")]
 position = Vector2(1033, 1125)

@@ -11,7 +11,6 @@ func show_dialog(text: String):
     await b.done
     
     
-
 func add_deferred(scene):
     get_tree().root.add_child(scene)
 
