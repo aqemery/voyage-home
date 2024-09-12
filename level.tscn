@@ -227,6 +227,8 @@ position = Vector2(5527, 8525)
 
 [node name="city1-5" parent="Ports" instance=ExtResource("8_3j7t7")]
 position = Vector2(4075, 13078)
+clues = Array[String](["We detected a distress signal coming from s0-4. Maybe you could check it out?", "The astronomer at the observatory in s1-4 has been doing some interesting research on the alien sensor towers in s2-5. We Haven't heard from him in a while. "])
+welcome_message = "Wow! Did you come out of that wormhole? Oh, you're lost aren't you? You should visit the observatory in the sector above us for some help."
 
 [node name="city3-2" parent="Ports" instance=ExtResource("8_3j7t7")]
 position = Vector2(8425, 5826)
