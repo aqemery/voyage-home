@@ -2,6 +2,7 @@ extends Sprite2D
 
 var BASE_DIST = 0.05
 var MAX_DIST = 0.22
+var POS
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,8 +11,11 @@ func _ready() -> void:
     print("connected")
 
 func update_region(v: Vector2):
+    POS = v
     material.set("shader_parameter/point", v / 50 / 337);
-    texture = get_viewport().get_texture()
+    var texture_image = get_viewport().get_texture().get_image()
+    texture = ImageTexture.create_from_image(texture_image)
+    
     
 func expand(r: Callable):
     var tween = get_tree().create_tween().bind_node(self)
@@ -20,6 +24,7 @@ func expand(r: Callable):
     tween.tween_callback(r)
 
 func reset():
+    update_region(POS)
     set_shader_value(BASE_DIST)
     
 func set_shader_value(value: float):

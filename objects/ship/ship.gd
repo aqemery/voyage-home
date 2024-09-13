@@ -4,7 +4,6 @@ class_name Ship
 @onready var area_col = $area_col
 @onready var physics_col = $RigidBody2D/physics_col
 @onready var rigid_body_2d = $RigidBody2D
-@onready var timer = $Timer
 
 var ship_body = preload("res://objects/ship/ship_body.tscn")
 var max_speed = 100
@@ -20,11 +19,6 @@ func _ready():
     SignalManager.warp.connect(warp)
     radius = area_col.shape.radius
     _draw()
-
-
-func _on_timeout():
-    ObjectMaker.make_breadcrumb(global_position)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
