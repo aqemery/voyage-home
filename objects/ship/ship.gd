@@ -59,7 +59,8 @@ func fire():
     
 
 func _draw():
-    draw_arc(Vector2.ZERO, area_col.shape.radius, 0, 2 * PI, 45, Color.BLACK, 1)
+    if Inventory.engineer == Inventory.VipState.UPGRADED:
+        draw_arc(Vector2.ZERO, area_col.shape.radius, 0, 2 * PI, 45, Color.BLACK, 1)
     draw_colored_polygon([
         Vector2(0, -area_col.shape.radius + 1),
         Vector2(-area_col.shape.radius + 3, area_col.shape.radius - 4),
