@@ -9,9 +9,13 @@ func _ready():
 
 func _physics_process(delta):
     if fuel_can_warn and fuel < 1:
+        DialogManager.show_dialog("Your fuel is low!")
         SignalManager.low_fuel.emit()
         fuel_can_warn = false
-        
+    if fuel <= 0:
+        SignalManager.respawn.emit()
+         
+    
 func refuel():
     fuel = 4
     await DialogManager.show_dialog("Fuel refilled!")

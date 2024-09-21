@@ -18,7 +18,7 @@ b = Vector2(16854, 16854)
 [node name="level_bounds" type="Node" groups=["wall"]]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["wall"]]
-collision_layer = 7
+collision_layer = 5
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -26,21 +26,21 @@ shape = SubResource("SegmentShape2D_d11w2")
 one_way_collision_margin = 0.0
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["wall"]]
-collision_layer = 7
+collision_layer = 5
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("SegmentShape2D_l5118")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." groups=["wall"]]
-collision_layer = 7
+collision_layer = 5
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 shape = SubResource("SegmentShape2D_r77nm")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." groups=["wall"]]
-collision_layer = 7
+collision_layer = 5
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]

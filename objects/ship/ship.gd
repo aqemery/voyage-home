@@ -17,12 +17,11 @@ var warp_vector = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
     SignalManager.warp.connect(warp)
+    SignalManager.respawn.connect(respawn)
     radius = area_col.shape.radius
     _draw()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-    pass
     
 func _physics_process(delta):
     if not rigid_body_2d:
@@ -35,11 +34,6 @@ func _physics_process(delta):
     rotate(r_input * delta * 5)
     global_position = rigid_body_2d.global_position
     rigid_body_2d.position = Vector2.ZERO
-    
-    
-    if FuelManager.fuel > 4:
-        queue_free()
-        
         
     # key down
     thrust = false
@@ -99,15 +93,41 @@ func warp(pos: Vector2):
     global_position = pos
     rigid_body_2d.linear_velocity = lv
     add_child(rigid_body_2d)
+    
+func respawn():
+    if rigid_body_2d != null:
+        rigid_body_2d.queue_free()
+    var effect = load("res://effects/warp-effect.tscn").instantiate()
+    get_tree().root.add_child(effect)
+    
+
+    await get_tree().create_timer(1.5).timeout
+    effect.queue_free()
+    rigid_body_2d = ship_body.instantiate()
+    global_position = Inventory.respawn_pos
+    Inventory.just_died = true
+    add_child(rigid_body_2d)
+    SignalManager.reset_fog.emit()
 
 
-func _entered_nebula(body: Node2D) -> void:
-    rigid_body_2d.linear_velocity = Vector2.ZERO
-    await DialogManager.show_dialog("Emergency stop, uncharted nebuala ahead.")
+func _entered_nebula_bounds(body: Node2D) -> void:
+    if Inventory.astronomer != Inventory.VipState.UPGRADED:
+        rigid_body_2d.linear_velocity = Vector2.ZERO
+        await DialogManager.show_dialog("Emergency stop, uncharted nebuala ahead.")
+    
 
-    pass # Replace with function body.
+func _on_nebula_body_entered(body: Node2D) -> void:
+    if Inventory.astronomer != Inventory.VipState.UPGRADED:
+        SignalManager.respawn.emit()
 
 
-func _get_lost(body: Node2D) -> void:
-    FuelManager.fuel = 0
-    pass # Replace with function body.
+func _on_asteroid_bounds_body_entered(body: Node2D) -> void:
+    if Inventory.engineer != Inventory.VipState.UPGRADED:
+        rigid_body_2d.linear_velocity = Vector2.ZERO
+        await DialogManager.show_dialog("Emergency stop, asteroid field ahead.")
+
+
+func _on_asteroids_body_entered(body: Node2D) -> void:
+    if Inventory.engineer != Inventory.VipState.UPGRADED:
+        SignalManager.respawn.emit()
+   

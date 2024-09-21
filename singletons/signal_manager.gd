@@ -9,6 +9,9 @@ signal wall_hit(x, y)
 signal low_fuel
 signal refuel
 signal warp(pos)
+signal checkpoint
+signal reset_fog
+signal respawn
 
 signal collect_astronomer
 signal collect_engineer
@@ -20,7 +23,6 @@ signal collect_ore(id)
 
 func _ready():
     player_hit.connect(print_hit)
-    low_fuel.connect(print_low_fuel)
 
 func print_hit(group, x, y):
     prints("ship hit", group, "at", x, y)
@@ -33,6 +35,3 @@ func print_hit(group, x, y):
             print("nebula hit")
         "wall":
             print("wall hit")
-
-func print_low_fuel():
-    print("low fuel!")

@@ -56,6 +56,7 @@ func sensor_done():
     await DialogManager.show_dialog("Sensor tower activated!")
     hide_map()
     $mapContainer/mapViewport/map/positon/Camera2D.anchor_mode = 0
+    SignalManager.checkpoint.emit()
     
     
 var origin_f = Vector2(0, -3)
