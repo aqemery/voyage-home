@@ -32,6 +32,7 @@ func display_text(text: String):
         wave.material.set("shader_parameter/amplitude",  amp);
         await get_tree().create_timer(frequency).timeout
     can_next = true
+    print("can next")
     
     
     

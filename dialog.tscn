@@ -20,7 +20,7 @@ shader_parameter/fade = 0.1
 shader_parameter/rest_size = -0.2
 shader_parameter/edge = 0.05
 shader_parameter/speed = 0.5
-shader_parameter/color = Vector4(0, 0, 0, 1)
+shader_parameter/color = Vector4(1, 1, 1, 1)
 shader_parameter/dot_matrix = false
 shader_parameter/dot_matriz_size = 80
 shader_parameter/speech_sim = true
@@ -59,8 +59,6 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_xgmd6"]
 font = ExtResource("1_a5x0q")
 font_size = 9
-font_color = Color(0, 0, 0, 1)
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wpdul"]
 atlas = ExtResource("5_2p12p")
@@ -107,6 +105,7 @@ offset_left = 68.0
 offset_top = 182.0
 offset_right = 116.0
 offset_bottom = 230.0
+color = Color(0, 0, 0, 1)
 
 [node name="wave" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_s5656")
@@ -114,6 +113,7 @@ offset_left = 68.0
 offset_top = 182.0
 offset_right = 116.0
 offset_bottom = 230.0
+color = Color(0.585062, 0.585062, 0.585062, 1)
 
 [node name="character" type="AnimatedSprite2D" parent="."]
 visible = false

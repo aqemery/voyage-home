@@ -54,14 +54,14 @@ func fire():
 
 func _draw():
     if Inventory.engineer == Inventory.VipState.UPGRADED:
-        draw_arc(Vector2.ZERO, area_col.shape.radius, 0, 2 * PI, 45, Color.BLACK, 1)
+        draw_arc(Vector2.ZERO, area_col.shape.radius, 0, 2 * PI, 45, Color.WHITE, 1)
     draw_colored_polygon([
         Vector2(0, -area_col.shape.radius + 1),
         Vector2(-area_col.shape.radius + 3, area_col.shape.radius - 4),
         Vector2(0, area_col.shape.radius - 6),
         Vector2(area_col.shape.radius - 3, area_col.shape.radius - 4),
        
-    ], Color.BLACK)
+    ], Color.WHITE)
 
     if thrust:
         draw_colored_polygon([
@@ -69,7 +69,7 @@ func _draw():
             Vector2(3, 7),
             Vector2(0, 20),
             Vector2(-3, 7),
-        ], Color.BLACK)
+        ], Color.WHITE)
 
 
 func _on_rigid_body_2d_body_entered(body):
