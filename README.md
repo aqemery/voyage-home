@@ -1,4 +1,5 @@
 # voyage-home
 A Godot 1bit space adventure 
 
-<img width="912" alt="Screenshot 2024-08-24 at 10 16 30 PM" src="https://github.com/user-attachments/assets/39b80b14-8d47-4623-9686-d227b262c6a6">
+
+<img width="912" alt="Screenshot 2024-09-22 at 10 56 34 PM" src="https://github.com/user-attachments/assets/5771a441-3d5b-460b-8cdc-fbf38f3aa2b5">
