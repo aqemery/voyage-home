@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c8ws7mjm34ayw" path="res://nebuala.tscn" id="5_pbeel"]
 [ext_resource type="Shader" path="res://objects/ui/fog.gdshader" id="6_mdw23"]
 [ext_resource type="Script" path="res://objects/ui/fog.gd" id="7_madym"]
-[ext_resource type="Texture2D" uid="uid://daucehaxq1ngd" path="res://images/sectors-hidden copy-export2.png" id="8_eha53"]
+[ext_resource type="Texture2D" uid="uid://daucehaxq1ngd" path="res://images/sectors-hidden.png" id="8_eha53"]
 [ext_resource type="Script" path="res://objects/ui/mini_map_scripts/camera_2d.gd" id="10_cn84a"]
 [ext_resource type="Script" path="res://objects/ui/positon.gd" id="11_hygoc"]
 
