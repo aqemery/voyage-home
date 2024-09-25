@@ -1,14 +1,15 @@
 extends RigidBody2D
 
 
-const SPEED = 15.0
+const SPEED = 25.0
 const max_speed = 250
-const JUMP_VELOCITY = -400.0
 var player_pos = Vector2(0, 0)
 var rotation_speed = 2
 var thrust = false
 var starting_pos = Vector2(0, 0)
 var chase_range = 1500
+
+@onready var ray_cast_2d: RayCast2D = $RayCast2D
 
 func _ready():
     SignalManager.player_moved.connect(getPlayerPos)
@@ -46,6 +47,10 @@ func _physics_process(delta: float) -> void:
     if move_to == starting_pos and global_position.distance_to(starting_pos) < 10:
         thrust = false
         linear_velocity = Vector2(0, 0)
+
+    # if player ship is hit by ray_cast_2d, respawn
+    if ray_cast_2d.is_colliding():
+        SignalManager.respawn.emit()
     
 func getPlayerPos(pos):
     player_pos = pos
