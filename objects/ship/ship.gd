@@ -19,7 +19,6 @@ func _ready():
     SignalManager.warp.connect(warp)
     SignalManager.respawn.connect(respawn)
     radius = area_col.shape.radius
-    _draw()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
     

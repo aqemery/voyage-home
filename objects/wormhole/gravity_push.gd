@@ -28,7 +28,7 @@ func _draw():
     for i in range(segments):
         var start = angle
         angle += step
-        draw_arc(Vector2.ZERO, radius, start, angle, 10, Color.BLACK)
-        draw_arc(Vector2.ZERO, value(radius + (cr / 3)), start, angle, 10, Color.BLACK)
-        draw_arc(Vector2.ZERO, value(radius + (2 * cr / 3)), start, angle, 10, Color.BLACK)
+        draw_arc(Vector2.ZERO, radius, start, angle, 10, Color.WHITE)
+        draw_arc(Vector2.ZERO, value(radius + (cr / 3)), start, angle, 10, Color.WHITE)
+        draw_arc(Vector2.ZERO, value(radius + (2 * cr / 3)), start, angle, 10, Color.WHITE)
         angle += step

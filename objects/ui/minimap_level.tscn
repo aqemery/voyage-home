@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://d1yx2slvja0jt"]
+[gd_scene load_steps=91 format=3 uid="uid://d1yx2slvja0jt"]
 
 [ext_resource type="Texture2D" uid="uid://dwqsryom40ky0" path="res://images/sectors.png" id="1_260ph"]
 [ext_resource type="Texture2D" uid="uid://blac8bvbo06ic" path="res://images/sectors-empty.png" id="1_yxfc7"]
@@ -16,9 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://c5s8ljxgfuhq3" path="res://images/ore.png" id="9_52rjp"]
 [ext_resource type="Texture2D" uid="uid://c65q5twipj30x" path="res://images/ruins.png" id="11_qvw5a"]
 [ext_resource type="Script" path="res://objects/ui/mini_ore.gd" id="14_bc51j"]
-[ext_resource type="Texture2D" uid="uid://b17vrthxg3cl7" path="res://images/area-enemy-sheet.png" id="17_jasdj"]
 [ext_resource type="Texture2D" uid="uid://bt4i7unk0ku44" path="res://images/area-nebula.png" id="18_7286p"]
 [ext_resource type="Texture2D" uid="uid://d16qjndbaogx5" path="res://images/area-asteroid-export.png" id="19_4euk4"]
+[ext_resource type="Script" path="res://objects/ui/enemies_on_mini.gd" id="21_k5sgd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hg8nq"]
 atlas = ExtResource("3_830ns")
@@ -540,35 +540,6 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ei8kf"]
-atlas = ExtResource("17_jasdj")
-region = Rect2(0, 0, 337, 337)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sgn0s"]
-atlas = ExtResource("17_jasdj")
-region = Rect2(337, 0, 337, 337)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_drfpf"]
-atlas = ExtResource("17_jasdj")
-region = Rect2(674, 0, 337, 337)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bg32i"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ei8kf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sgn0s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_drfpf")
-}],
-"loop": true,
-"name": &"default",
-"speed": 4.0
-}]
-
 [node name="minimap-level" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -773,12 +744,6 @@ sprite_frames = SubResource("SpriteFrames_w2m1y")
 autoplay = "default"
 frame_progress = 0.855639
 
-[node name="Enemies" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_bg32i")
-autoplay = "default"
-frame_progress = 0.423637
-centered = false
-
 [node name="Nebula" type="Sprite2D" parent="."]
 texture = ExtResource("18_7286p")
 centered = false
@@ -786,6 +751,9 @@ centered = false
 [node name="Asteroid" type="Sprite2D" parent="."]
 texture = ExtResource("19_4euk4")
 centered = false
+
+[node name="enemies" type="Node2D" parent="."]
+script = ExtResource("21_k5sgd")
 
 [connection signal="animation_finished" from="towers/sensor_tower" to="towers/sensor_tower" method="_on_animation_finished"]
 [connection signal="animation_finished" from="towers/sensor_tower2" to="towers/sensor_tower2" method="_on_animation_finished"]

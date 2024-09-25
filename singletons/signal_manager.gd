@@ -12,6 +12,7 @@ signal warp(pos)
 signal checkpoint
 signal reset_fog
 signal respawn
+signal enemy_moved(id, pos)
 
 signal collect_astronomer
 signal collect_engineer

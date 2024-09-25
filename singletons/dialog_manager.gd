@@ -1,7 +1,7 @@
 extends Node
 class_name dialog_manager
 
-const DIALOG = preload("res://dialog.tscn")
+const DIALOG = preload("res://objects/ui/dialog/dialog.tscn")
 
 func show_dialog(text: String):
     var b = DIALOG.instantiate()
