@@ -34,7 +34,6 @@ func set_shader_value(value: float):
     material.set("shader_parameter/max_distance", value)
 
 func save_fog():
-    print("save fog")
     Inventory.fog_image = get_viewport().get_texture().get_image()
     
 func reset_fog():
