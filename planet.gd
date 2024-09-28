@@ -1,4 +1,4 @@
 extends AnimatedSprite2D
 
 func _on_area_2d_body_entered(body):
-    print("You Win!")
+    get_tree().change_scene_to_file("res://credits.tscn")

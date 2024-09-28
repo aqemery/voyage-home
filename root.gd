@@ -9,6 +9,7 @@ extends Node2D
 var map_full = false
 
 func _ready():
+    Inventory.reset()
     SignalManager.activate_tower.connect(sensor_activate)
 
     
