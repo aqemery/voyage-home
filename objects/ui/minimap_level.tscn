@@ -936,7 +936,7 @@ script = ExtResource("21_k5sgd")
 position = Vector2(265, 216)
 sprite_frames = SubResource("SpriteFrames_0dil4")
 autoplay = "default"
-frame_progress = 0.158217
+frame_progress = 0.174318
 
 [node name="Node" type="Node" parent="."]
 

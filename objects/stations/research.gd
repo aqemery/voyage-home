@@ -15,6 +15,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
                 await DialogManager.show_dialog("Great you collected enough relics!")
                 await DialogManager.show_dialog("Let's upgrade the communcation array on your ship.")
                 Inventory.exobiologist = Inventory.VipState.UPGRADED
+                SignalManager.comms_upgraded.emit()
         Inventory.VipState.UPGRADED:
             await DialogManager.show_dialog("How is the new communcation array treating you?")
     SignalManager.refuel.emit()

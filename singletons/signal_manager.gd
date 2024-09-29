@@ -13,6 +13,7 @@ signal checkpoint
 signal reset_fog
 signal respawn
 signal enemy_moved(id, pos)
+signal comms_upgraded()
 
 signal collect_astronomer
 signal collect_engineer

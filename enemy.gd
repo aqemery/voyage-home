@@ -17,6 +17,8 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
     var move_to = player_pos
+    if Inventory.exobiologist == Inventory.VipState.UPGRADED:
+        return
     
     # if distance from player is greater than chase range, move to starting position
     if global_position.distance_to(player_pos) > chase_range:
