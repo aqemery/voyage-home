@@ -61,6 +61,13 @@ func _draw():
         Vector2(area_col.shape.radius - 3, area_col.shape.radius - 4),
        
     ], Color.WHITE)
+    
+    draw_colored_polygon([
+        Vector2(0, -area_col.shape.radius + 5),
+        Vector2(-area_col.shape.radius + 7, area_col.shape.radius - 8),
+        Vector2(area_col.shape.radius - 7, area_col.shape.radius - 8),
+       
+    ], Color.BLACK)
 
     if thrust:
         draw_colored_polygon([
