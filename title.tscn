@@ -1,14 +1,67 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2u0a75deh322"]
+[gd_scene load_steps=8 format=3 uid="uid://d2u0a75deh322"]
 
 [ext_resource type="Script" path="res://title.gd" id="1_6i7jg"]
+[ext_resource type="Texture2D" uid="uid://dmesdymil7f81" path="res://images/title.png" id="2_rogwm"]
+[ext_resource type="FontFile" uid="uid://baoxy4sof1yq8" path="res://objects/ui/dialog/themevck-text.ttf" id="3_u5h6y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x78h0"]
+font = ExtResource("3_u5h6y")
+font_size = 18
+
+[sub_resource type="Animation" id="Animation_g1vla"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1.6245),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2c0gk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jq6rc"]
+_data = {
+"RESET": SubResource("Animation_2c0gk"),
+"new_animation": SubResource("Animation_g1vla")
+}
 
 [node name="Title" type="Node2D"]
 script = ExtResource("1_6i7jg")
 
+[node name="Title" type="Sprite2D" parent="."]
+texture = ExtResource("2_rogwm")
+centered = false
+
 [node name="Label" type="Label" parent="."]
-offset_left = 122.0
-offset_top = 71.0
-offset_right = 162.0
-offset_bottom = 94.0
-text = "Title
-"
+offset_left = 198.0
+offset_top = 198.0
+offset_right = 253.0
+offset_bottom = 221.0
+text = "PRESS X"
+label_settings = SubResource("LabelSettings_x78h0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jq6rc")
+}
+autoplay = "new_animation"
