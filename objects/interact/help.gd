@@ -1,5 +1,7 @@
 extends AnimatedSprite2D
 
+@onready var sos: AudioStreamPlayer2D = $sos
+
 enum VipType {
     ENGINEER,
     ASTRONOMER,
@@ -11,6 +13,7 @@ enum VipType {
 
 
 func _on_area_2d_body_entered(body):
+    sos.queue_free()
     var dialog: PackedStringArray
     match vip_type:
         VipType.ENGINEER:

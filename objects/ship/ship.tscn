@@ -16,3 +16,6 @@ script = ExtResource("1_jcg3e")
 shape = SubResource("CircleShape2D_5yxde")
 
 [node name="RigidBody2D" parent="." instance=ExtResource("2_2odi4")]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
