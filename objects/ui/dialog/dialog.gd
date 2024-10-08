@@ -3,7 +3,7 @@ class_name Dialog
 
 @onready var label: Label = $Label
 @onready var next: AnimatedSprite2D = $next
-@export var speed: int = 30
+@export var speed: int = 60
 @onready var wave: ColorRect = $wave
 
 signal done
