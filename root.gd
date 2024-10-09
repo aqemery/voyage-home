@@ -4,6 +4,7 @@ extends Node2D
 @onready var pos: Node2D = $mapContainer/mapViewport/map/positon
 @onready var main_container: SubViewportContainer = $mainContainer
 @onready var main_viewport: SubViewport = $mainContainer/mainViewport
+@onready var pause_menu: CanvasLayer = %pause_menu
 
 
 var map_full = false
@@ -61,3 +62,7 @@ func sensor_done():
     
     
 var origin_f = Vector2(0, -3)
+
+
+func _on_quit_button_pressed() -> void:
+    pass # Replace with function body.
