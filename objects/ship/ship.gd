@@ -116,22 +116,12 @@ func respawn():
     SignalManager.reset_fog.emit()
 
 
-func _entered_nebula_bounds(body: Node2D) -> void:
-    if Inventory.astronomer != Inventory.VipState.UPGRADED:
-        rigid_body_2d.linear_velocity = Vector2.ZERO
-        await DialogManager.show_dialog("Emergency stop, uncharted nebuala ahead.")
-    
 
 func _on_nebula_body_entered(body: Node2D) -> void:
     if Inventory.astronomer != Inventory.VipState.UPGRADED:
         Inventory.died_cause = Inventory.Cause.NEBULA
         SignalManager.respawn.emit()
 
-
-func _on_asteroid_bounds_body_entered(body: Node2D) -> void:
-    if Inventory.engineer != Inventory.VipState.UPGRADED:
-        rigid_body_2d.linear_velocity = Vector2.ZERO
-        await DialogManager.show_dialog("Emergency stop, asteroid field ahead.")
 
 
 func _on_asteroids_body_entered(body: Node2D) -> void:
