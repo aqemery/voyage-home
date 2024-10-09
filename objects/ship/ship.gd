@@ -10,6 +10,7 @@ var max_speed = 100
 var radius
 var area
 var raw_rotation = 0
+var dead = false
 
 var thrust = false
 var warp_vector = null
@@ -101,19 +102,23 @@ func warp(pos: Vector2):
     add_child(rigid_body_2d)
     
 func respawn():
+    if dead:
+        return
+    dead = true
     if rigid_body_2d != null:
         rigid_body_2d.queue_free()
     var effect = load("res://effects/warp-effect.tscn").instantiate()
     get_tree().root.add_child(effect)
     
 
-    await get_tree().create_timer(1.5).timeout
+    await get_tree().create_timer(2.0).timeout
     effect.queue_free()
     rigid_body_2d = ship_body.instantiate()
     global_position = Inventory.respawn_pos
     Inventory.just_died = true
     add_child(rigid_body_2d)
     SignalManager.reset_fog.emit()
+    dead = false
 
 
 

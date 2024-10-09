@@ -15,6 +15,7 @@ func _physics_process(delta):
     if fuel <= 0:
         Inventory.died_cause = Inventory.Cause.FUEL
         SignalManager.respawn.emit()
+        fuel = 0.1
          
     
 func refuel():
