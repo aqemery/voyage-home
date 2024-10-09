@@ -1,6 +1,7 @@
 extends Node
 
 enum VipState { MISSING, FOUND, RETURNED, UPGRADED }
+enum Cause { ASTEROID, ENEMY, NEBULA, FUEL}
 
 var astronomer: VipState = VipState.MISSING
 var engineer: VipState  = VipState.MISSING
@@ -11,6 +12,7 @@ var towers = 0
 var fog_image: Image
 var respawn_pos:Vector2 = Vector2(4075, 13078)
 var just_died = false
+var died_cause: Cause = Cause.FUEL
 
 func reset():
     astronomer = VipState.MISSING

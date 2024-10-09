@@ -52,6 +52,7 @@ func _physics_process(delta: float) -> void:
 
     # if player ship is hit by ray_cast_2d, respawn
     if ray_cast_2d.is_colliding():
+        Inventory.died_cause = Inventory.Cause.ENEMY
         SignalManager.respawn.emit()
     
 func getPlayerPos(pos):

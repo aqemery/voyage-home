@@ -13,6 +13,7 @@ func _physics_process(delta):
         SignalManager.low_fuel.emit()
         fuel_can_warn = false
     if fuel <= 0:
+        Inventory.died_cause = Inventory.Cause.FUEL
         SignalManager.respawn.emit()
          
     
