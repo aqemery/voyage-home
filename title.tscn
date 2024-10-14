@@ -42,7 +42,7 @@ animations = [{
 
 [sub_resource type="LabelSettings" id="LabelSettings_x78h0"]
 font = ExtResource("3_u5h6y")
-font_size = 18
+font_size = 9
 
 [sub_resource type="Animation" id="Animation_2c0gk"]
 length = 0.001
@@ -89,11 +89,11 @@ sprite_frames = SubResource("SpriteFrames_asmww")
 centered = false
 
 [node name="Label" type="Label" parent="."]
-offset_left = 198.0
-offset_top = 198.0
-offset_right = 278.0
-offset_bottom = 222.0
-text = "PRESS X"
+offset_left = 155.0
+offset_top = 200.0
+offset_right = 241.0
+offset_bottom = 224.0
+text = "Press X to Start"
 label_settings = SubResource("LabelSettings_x78h0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
