@@ -6,12 +6,18 @@ extends Node2D
 @onready var main_viewport: SubViewport = $mainContainer/mainViewport
 @onready var pause_menu: CanvasLayer = %pause_menu
 
+signal map_opened
+
 
 var map_full = false
 
 func _ready():
     Inventory.reset()
     SignalManager.activate_tower.connect(sensor_activate)
+    
+    control_intro()
+    
+    
 
     
 func _input(event: InputEvent) -> void:
@@ -22,10 +28,26 @@ func _input(event: InputEvent) -> void:
     elif event.is_action_released("show_minimap"):
         hide_map()
         
+        
+func control_intro():
+    await get_tree().create_timer(0.5).timeout
+    await DialogManager.show_dialog("We need to head toward that city.")
+    await DialogManager.show_dialog("Press and hold the 'Z' key to bring up your map.")
+    await map_opened
+    await DialogManager.show_dialog("The SS Conveyance's location will show as a blinking dot.")
+    await DialogManager.show_dialog("We can't see much arround us. The wormhole is to the northwest, and there is a city to the south east.")
+    hide_map()
+    await get_tree().create_timer(0.5).timeout
+    await DialogManager.show_dialog("Press the left and right arrow key to change the direction of your ship.")
+    await DialogManager.show_dialog("Press the 'X' to accelerate. Be careful you can get going pretty fast!")
+    await DialogManager.show_dialog("There is a fuel gage on the left side of your screen. Don't forget to keep an eye on how much fuel you are using.")
+    await DialogManager.show_dialog("Lets find our way home!")
+    
 func show_map():
     map_full = true
     set_big(map_container, map_viewport)
     set_small(main_container, main_viewport)
+    map_opened.emit()
     
     
 func hide_map():

@@ -41,12 +41,12 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3/labels"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "Master"
+text = "Volume"
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3/labels"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-text = "Sound effects"
+text = "Sound Effects"
 
 [node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer3/labels"]
 custom_minimum_size = Vector2(0, 30)
