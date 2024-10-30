@@ -22,6 +22,9 @@ signal collect_exobiologist
 signal activate_tower(id)
 signal collect_ore(id)
 
+signal enter_enemy
+signal leave_enemy
+
 
 func _ready():
     player_hit.connect(print_hit)

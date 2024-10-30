@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo5awully4anc"]
+[gd_scene load_steps=5 format=3 uid="uid://bo5awully4anc"]
 
 [ext_resource type="Script" path="res://objects/ship/ship.gd" id="1_jcg3e"]
 [ext_resource type="PackedScene" uid="uid://c33ybwwgnkm0n" path="res://objects/ship/ship_body.tscn" id="2_2odi4"]
+[ext_resource type="AudioStream" uid="uid://du8afjuua750k" path="res://sounds/engine.wav" id="3_dhhed"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5yxde"]
 resource_local_to_scene = true
@@ -19,3 +20,7 @@ shape = SubResource("CircleShape2D_5yxde")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
+
+[node name="EngineSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dhhed")
+volume_db = -5.0

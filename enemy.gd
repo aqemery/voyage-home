@@ -8,6 +8,7 @@ var rotation_speed = 2
 var thrust = false
 var starting_pos = Vector2(0, 0)
 var chase_range = 1500
+var dest_player = false 
 
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 
@@ -20,13 +21,16 @@ func _physics_process(delta: float) -> void:
     if Inventory.exobiologist == Inventory.VipState.UPGRADED:
         return
     
-    # if distance from player is greater than chase range, move to starting position
-    if global_position.distance_to(player_pos) > chase_range:
+    if global_position.distance_to(player_pos) > chase_range or global_position.distance_to(starting_pos) > chase_range:
         move_to = starting_pos
-
-    # if distance from starting position is greater than chase range, move to player position
-    if global_position.distance_to(starting_pos) > chase_range:
-        move_to = starting_pos
+        if dest_player:
+            SignalManager.leave_enemy.emit()
+            dest_player = false
+    else:
+        if not dest_player:
+            SignalManager.enter_enemy.emit()
+            dest_player = true
+        
     
     # get angle to player position
     var angle = get_angle_to(move_to) + PI/2

@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://d4eey5fbj5xsw"]
+[gd_scene load_steps=34 format=3 uid="uid://d4eey5fbj5xsw"]
 
 [ext_resource type="Script" path="res://credits.gd" id="1_ltu3u"]
 [ext_resource type="FontFile" uid="uid://baoxy4sof1yq8" path="res://objects/ui/dialog/themevck-text.ttf" id="2_jbnqf"]
 [ext_resource type="Texture2D" uid="uid://c7aiaccq8n3vt" path="res://images/landing.png" id="2_ubgj5"]
+[ext_resource type="AudioStream" uid="uid://dqgwfpm4kt2lt" path="res://sounds/land.wav" id="4_nbtnk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_stgcq"]
 atlas = ExtResource("2_ubgj5")
@@ -223,5 +224,10 @@ offset_right = 279.0
 offset_bottom = 225.0
 text = "Welcome Home!"
 label_settings = SubResource("LabelSettings_h0bu5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nbtnk")
+autoplay = true
+bus = &"music"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

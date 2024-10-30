@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cak3wdahbglks"]
+[gd_scene load_steps=21 format=3 uid="uid://cak3wdahbglks"]
 
 [ext_resource type="PackedScene" uid="uid://d1yx2slvja0jt" path="res://objects/ui/minimap_level.tscn" id="1_8nl68"]
 [ext_resource type="Script" path="res://root.gd" id="1_uwv17"]
@@ -12,11 +12,104 @@
 [ext_resource type="Script" path="res://objects/ui/mini_map_scripts/camera_2d.gd" id="10_cn84a"]
 [ext_resource type="Script" path="res://objects/ui/positon.gd" id="11_hygoc"]
 [ext_resource type="PackedScene" uid="uid://bs35u0xsjda5h" path="res://pause_menu.tscn" id="12_joln7"]
+[ext_resource type="AudioStream" uid="uid://de08ud3ltvsxn" path="res://sounds/game_play.mp3" id="13_mwjp1"]
+[ext_resource type="AudioStream" uid="uid://duv74hpf05am6" path="res://sounds/game-enemy.mp3" id="14_ov6j2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t7mj1"]
 shader = ExtResource("6_mdw23")
 shader_parameter/point = Vector2(30, 30)
 shader_parameter/max_distance = 0.05
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_n2deb"]
+stream_count = 2
+stream_0/stream = ExtResource("13_mwjp1")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("14_ov6j2")
+stream_1/volume = -60.0
+
+[sub_resource type="Animation" id="Animation_sc38t"]
+resource_name = "enemy_range"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:stream:stream_0/volume")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -60, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667, 1.93333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream:stream_1/volume")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-60, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667, 1.93333)
+}
+
+[sub_resource type="Animation" id="Animation_27c6g"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:stream:stream_0/volume")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream:stream_1/volume")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-60, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_3a3q0"]
+resource_name = "enemy_leave"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:stream:stream_0/volume")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-60, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 1.9)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream:stream_1/volume")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -60, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667, 1.93333)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_86lwa"]
+_data = {
+"RESET": SubResource("Animation_27c6g"),
+"enemy_leave": SubResource("Animation_3a3q0"),
+"enemy_range": SubResource("Animation_sc38t")
+}
 
 [node name="Root" type="Node2D"]
 process_mode = 3
@@ -121,5 +214,15 @@ autostart = true
 [node name="pause_menu" parent="." instance=ExtResource("12_joln7")]
 unique_name_in_owner = true
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_n2deb")
+autoplay = true
+bus = &"music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_86lwa")
+}
 
 [connection signal="timeout" from="mapContainer/mapViewport/map/Timer" to="mapContainer/mapViewport/map/positon" method="_on_timer_timeout"]

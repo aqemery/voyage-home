@@ -4,6 +4,7 @@ class_name Ship
 @onready var area_col = $area_col
 @onready var physics_col = $RigidBody2D/physics_col
 @onready var rigid_body_2d = $RigidBody2D
+@onready var engine_sound: AudioStreamPlayer = $EngineSound
 
 var ship_body = preload("res://objects/ship/ship_body.tscn")
 var max_speed = 100
@@ -41,6 +42,11 @@ func _physics_process(delta):
     if Input.is_action_pressed("fire"):
         fire()
     
+    if thrust and not engine_sound.playing:
+        engine_sound.play()
+    
+    if not thrust:
+        engine_sound.stop()
         
     SignalManager.player_moved.emit(global_position)
 

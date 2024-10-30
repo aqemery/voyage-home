@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2u0a75deh322"]
+[gd_scene load_steps=14 format=3 uid="uid://d2u0a75deh322"]
 
 [ext_resource type="Script" path="res://title.gd" id="1_6i7jg"]
 [ext_resource type="Texture2D" uid="uid://mqjqyddbv386" path="res://images/title-sheet.png" id="2_30iac"]
 [ext_resource type="FontFile" uid="uid://baoxy4sof1yq8" path="res://objects/ui/dialog/themevck-text.ttf" id="3_u5h6y"]
+[ext_resource type="AudioStream" uid="uid://c8is6hiyvh43" path="res://sounds/title.mp3" id="4_ba1bw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p05rt"]
 atlas = ExtResource("2_30iac")
@@ -101,3 +102,10 @@ libraries = {
 "": SubResource("AnimationLibrary_jq6rc")
 }
 autoplay = "new_animation"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ba1bw")
+autoplay = true
+bus = &"music"
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

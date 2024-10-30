@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b58grslkib651"]
+[gd_scene load_steps=20 format=3 uid="uid://b58grslkib651"]
 
 [ext_resource type="FontFile" uid="uid://baoxy4sof1yq8" path="res://objects/ui/dialog/themevck-text.ttf" id="1_a5x0q"]
 [ext_resource type="Script" path="res://objects/ui/dialog/dialog.gd" id="1_vg323"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://objects/ui/dialog/dialog.gdshader" id="2_bb544"]
 [ext_resource type="Texture2D" uid="uid://ca1ddq8kqdbpm" path="res://images/portrait-frame.png" id="3_kqb2w"]
 [ext_resource type="Texture2D" uid="uid://bnrgmcavha23p" path="res://images/next-indicator.png" id="5_2p12p"]
+[ext_resource type="AudioStream" uid="uid://evsxql5mkbxr" path="res://sounds/random.wav" id="8_lmguy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s5656"]
 shader = ExtResource("2_bb544")
@@ -147,3 +148,7 @@ position = Vector2(380, 222)
 sprite_frames = SubResource("SpriteFrames_gufmd")
 autoplay = "default"
 frame_progress = 0.0572572
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_lmguy")
+autoplay = true

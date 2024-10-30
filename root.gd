@@ -7,15 +7,35 @@ extends Node2D
 @onready var pause_menu: CanvasLayer = %pause_menu
 
 signal map_opened
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 var map_full = false
+var enemy_count = 0
 
 func _ready():
     Inventory.reset()
     SignalManager.activate_tower.connect(sensor_activate)
+    SignalManager.enter_enemy.connect(enemy_area_inc)
+    SignalManager.leave_enemy.connect(enemy_area_dec)
     
     control_intro()
+    
+
+
+func enemy_area_inc():
+    if enemy_count == 0:
+        animation_player.play("enemy_range")
+    enemy_count += 1
+    prints("enemy count", enemy_count)
+    
+    
+func enemy_area_dec():
+    enemy_count -= 1
+    if enemy_count == 0:
+        animation_player.play("enemy_leave")
+    prints("enemy count", enemy_count)
     
     
 
