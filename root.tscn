@@ -27,32 +27,6 @@ stream_0/volume = 0.0
 stream_1/stream = ExtResource("14_ov6j2")
 stream_1/volume = -60.0
 
-[sub_resource type="Animation" id="Animation_sc38t"]
-resource_name = "enemy_range"
-length = 2.0
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AudioStreamPlayer:stream:stream_0/volume")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -60, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.966667, 1.93333)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:stream:stream_1/volume")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-60, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.966667, 1.93333)
-}
-
 [sub_resource type="Animation" id="Animation_27c6g"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -101,6 +75,32 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -60, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667, 1.93333)
+}
+
+[sub_resource type="Animation" id="Animation_sc38t"]
+resource_name = "enemy_range"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:stream:stream_0/volume")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -60, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667, 1.93333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream:stream_1/volume")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-60, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.966667, 1.93333)
 }
 

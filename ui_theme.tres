@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ctg7pqwlrci"]
+
+[ext_resource type="FontFile" uid="uid://baoxy4sof1yq8" path="res://objects/ui/dialog/themevck-text.ttf" id="1_lo46w"]
+
+[resource]
+default_font = ExtResource("1_lo46w")
+default_font_size = 18
+Label/constants/outline_size = 2
+Label/fonts/font = ExtResource("1_lo46w")

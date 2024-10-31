@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bs35u0xsjda5h"]
+[gd_scene load_steps=3 format=3 uid="uid://bs35u0xsjda5h"]
 
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_htjd4"]
+[ext_resource type="Theme" uid="uid://ctg7pqwlrci" path="res://ui_theme.tres" id="2_xoj8d"]
 
 [node name="pause_menu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_htjd4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0.690196)
+offset_right = 400.0
+offset_bottom = 240.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -24,13 +30,8 @@ size_flags_vertical = 0
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_xoj8d")
 text = "Options"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -41,18 +42,28 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3/labels"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+theme = ExtResource("2_xoj8d")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Volume"
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3/labels"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+theme = ExtResource("2_xoj8d")
 text = "Sound Effects"
 
 [node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer3/labels"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+theme = ExtResource("2_xoj8d")
 text = "Music
 "
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer3/labels"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme = ExtResource("2_xoj8d")
+text = "Display"
 
 [node name="controls" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
@@ -61,6 +72,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
+theme = ExtResource("2_xoj8d")
 max_value = 1.0
 step = 0.05
 
@@ -68,6 +80,7 @@ step = 0.05
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
+theme = ExtResource("2_xoj8d")
 max_value = 1.0
 step = 0.05
 
@@ -75,15 +88,39 @@ step = 0.05
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
+theme = ExtResource("2_xoj8d")
 max_value = 1.0
 step = 0.05
 
-[node name="quit_button" type="Button" parent="VBoxContainer"]
+[node name="MenuButton" type="MenuButton" parent="VBoxContainer/HBoxContainer3/controls"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("2_xoj8d")
+text = "Fullscreen"
+item_count = 2
+popup/item_0/text = "Fullscreen"
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="save" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("2_xoj8d")
+text = "Save"
+
+[node name="quit_button" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("2_xoj8d")
 text = "Quit"
 
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer3/controls/master" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer3/controls/sfx" to="." method="_on_sfx_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer3/controls/music" to="." method="_on_music_value_changed"]
-[connection signal="pressed" from="VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]

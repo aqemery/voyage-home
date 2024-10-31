@@ -1,6 +1,7 @@
 extends Node2D
 @onready var sprite: AnimatedSprite2D = $sprite
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var pause_menu: CanvasLayer = $pause_menu
 
 #const ROOT = preload("res://root.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -20,5 +21,5 @@ func _input(event):
     if event.is_action_released("fire"):
         get_tree().change_scene_to_file("res://intro.tscn")
 
-    if event.is_action_released("esc"):
-        get_tree().quit()
+    #if event.is_action_released("esc"):
+        #get_tree().quit()

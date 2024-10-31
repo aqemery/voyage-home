@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://byt2se15lrfo8"]
+[gd_scene load_steps=14 format=3 uid="uid://byt2se15lrfo8"]
 
 [ext_resource type="Script" path="res://intro.gd" id="1_muhqy"]
 [ext_resource type="Texture2D" uid="uid://vy4s8ajaecby" path="res://images/intro-1.png" id="1_srqyk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dnuwwymdlqb8l" path="res://images/intro-4.png" id="5_ntuci"]
 [ext_resource type="Texture2D" uid="uid://30hf02gev40b" path="res://images/intro-5.png" id="5_tpbte"]
 [ext_resource type="AudioStream" uid="uid://c6ur5n53eaoon" path="res://sounds/ambiant.wav" id="8_riigq"]
+[ext_resource type="PackedScene" uid="uid://bs35u0xsjda5h" path="res://pause_menu.tscn" id="9_mx7pf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xehpi"]
 font = ExtResource("2_g7n12")
@@ -239,6 +240,9 @@ stream = ExtResource("8_riigq")
 volume_db = -15.0
 autoplay = true
 bus = &"music"
+
+[node name="pause_menu" parent="." instance=ExtResource("9_mx7pf")]
+visible = false
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

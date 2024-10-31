@@ -52,7 +52,7 @@ func _input(event: InputEvent) -> void:
 func control_intro():
     await get_tree().create_timer(0.5).timeout
     await DialogManager.show_dialog("We need to head toward that city.")
-    await DialogManager.show_dialog("Press and hold the 'Z' key to bring up your map.")
+    await DialogManager.show_dialog("Press and hold the 'Z' key to bring up your map.", "show_minimap")
     await map_opened
     await DialogManager.show_dialog("The SS Conveyance's location will show as a blinking dot.")
     await DialogManager.show_dialog("We can't see much arround us. The wormhole is to the northwest, and there is a city to the south east.")

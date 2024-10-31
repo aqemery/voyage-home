@@ -5,13 +5,14 @@ class_name Dialog
 @onready var next: AnimatedSprite2D = $next
 @export var speed: int = 60
 @onready var wave: ColorRect = $wave
+@export var exit_action: String = "fire"
 
 signal done
 var can_next = false 
 
 
 func _input(event):
-    if can_next and event.is_action_pressed("fire"):
+    if can_next and event.is_action_pressed(exit_action):
         get_tree().paused = false
         done.emit()
         queue_free()
