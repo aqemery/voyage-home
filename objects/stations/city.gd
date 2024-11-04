@@ -16,7 +16,7 @@ func _on_area_2d_body_entered(body):
             await DialogManager.show_dialog("We found your ship floating in a nebula. It looks like you got lost in the clouds. Be careful out there.")
         elif Inventory.died_cause == Inventory.Cause.ASTEROID:
             await DialogManager.show_dialog("We found your ship floating in space. It looks like you were hit by an asteroid. Be careful out there.")
-        await DialogManager.show_dialog("Warning: Navagation data lost.")
+        await DialogManager.show_dialog("Warning: Navigation data lost.")
     elif first_visit:
         await DialogManager.show_dialog(welcome_message)
         first_visit = false

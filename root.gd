@@ -55,13 +55,13 @@ func control_intro():
     await DialogManager.show_dialog("Press and hold the 'Z' key to bring up your map.", "show_minimap")
     await map_opened
     await DialogManager.show_dialog("The SS Conveyance's location will show as a blinking dot.")
-    await DialogManager.show_dialog("We can't see much arround us. The wormhole is to the northwest, and there is a city to the south east.")
+    await DialogManager.show_dialog("We can't see much around us. The wormhole is to the northwest, and there is a city to the southeast.")
     hide_map()
     await get_tree().create_timer(0.5).timeout
-    await DialogManager.show_dialog("Press the left and right arrow key to change the direction of your ship.")
-    await DialogManager.show_dialog("Press the 'X' to accelerate. Be careful you can get going pretty fast!")
-    await DialogManager.show_dialog("There is a fuel gage on the left side of your screen. Don't forget to keep an eye on how much fuel you are using.")
-    await DialogManager.show_dialog("Lets find our way home!")
+    await DialogManager.show_dialog("Press the left and right arrow keys to change the direction of your ship.")
+    await DialogManager.show_dialog("Press the 'X' to accelerate. Be careful - you can get going pretty fast!")
+    await DialogManager.show_dialog("There is a fuel gauge on the left side of your screen. Don't forget to keep an eye on how much fuel you are using.")
+    await DialogManager.show_dialog("Let's find our way home!")
     
 func show_map():
     map_full = true

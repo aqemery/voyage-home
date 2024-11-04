@@ -21,7 +21,7 @@ func _on_area_2d_body_entered(body):
             SignalManager.collect_engineer.emit()
             dialog = [
                 "Thank you for rescuing me! I ran into trouble looking for special ore for a project.",
-                "Could please take me back to my construction station in s0-0?\nI will make sure it's worth your while."
+                "Could you please take me back to my construction station in s0-0?\nI will make sure it's worth your while."
             ]
         VipType.ASTRONOMER:
             Inventory.astronomer = Inventory.VipState.FOUND
@@ -29,7 +29,7 @@ func _on_area_2d_body_entered(body):
             dialog = [
                 "Thank you for rescuing me! This is embarrassing, but I got lost while looking for a sensor tower.",
                 "I think I took a wrong turn. Could you please take me back to my observation station in s1-4?",
-                "I can help you find your way around from there. ",
+                "I can help you find your way around from there.",
             ]
             
         VipType.EXOBIOLOGIST:
