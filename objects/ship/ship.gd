@@ -85,12 +85,6 @@ func _draw():
         ], Color.WHITE)
 
 
-func _on_rigid_body_2d_body_entered(body):
-    for g in body.get_groups():
-        if "_root" in g:
-            continue
-        SignalManager.player_hit.emit(g, global_position.x, global_position.y)
-
 func _on_timer_timeout():
      ObjectMaker.make_breadcrumb(global_position)
 

@@ -9,7 +9,7 @@ extends Node2D
 signal map_opened
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+@export var tutorialOn: bool = true 
 
 var map_full = false
 var enemy_count = 0
@@ -20,7 +20,8 @@ func _ready():
     SignalManager.enter_enemy.connect(enemy_area_inc)
     SignalManager.leave_enemy.connect(enemy_area_dec)
     
-    control_intro()
+    if tutorialOn:
+        control_intro()
     
 
 

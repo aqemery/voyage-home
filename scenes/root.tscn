@@ -115,6 +115,7 @@ _data = {
 process_mode = 3
 texture_filter = 1
 script = ExtResource("1_uwv17")
+tutorialOn = false
 
 [node name="MainLayer" type="CanvasLayer" parent="."]
 
