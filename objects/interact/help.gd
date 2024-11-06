@@ -12,7 +12,7 @@ enum VipType {
 @export var vip_type: VipType
 
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
     sos.queue_free()
     var dialog: PackedStringArray
     match vip_type:

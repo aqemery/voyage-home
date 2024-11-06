@@ -1,13 +1,12 @@
 extends Node2D
 
 var enemy_map = {}
-const ENEMY_MINI_MAP = preload("res://enemy_mini_map.tscn")
+const ENEMY_MINI_MAP = preload("res://objects/ememies/enemy_mini_map.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     SignalManager.enemy_moved.connect(enemy_moved)
     SignalManager.comms_upgraded.connect(queue_free)
-    pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

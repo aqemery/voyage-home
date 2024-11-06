@@ -1,0 +1,248 @@
+[gd_scene load_steps=14 format=3 uid="uid://byt2se15lrfo8"]
+
+[ext_resource type="Script" path="res://scenes/intro.gd" id="1_muhqy"]
+[ext_resource type="Texture2D" uid="uid://vy4s8ajaecby" path="res://images/intro-1.png" id="1_srqyk"]
+[ext_resource type="FontFile" uid="uid://baoxy4sof1yq8" path="res://objects/ui/dialog/themevck-text.ttf" id="2_g7n12"]
+[ext_resource type="Texture2D" uid="uid://bfk6noc6g5y0b" path="res://images/intro-2.png" id="3_algn3"]
+[ext_resource type="Texture2D" uid="uid://b5efw2e6t3e4c" path="res://images/intro-3.png" id="4_ns8qv"]
+[ext_resource type="Texture2D" uid="uid://dnuwwymdlqb8l" path="res://images/intro-4.png" id="5_ntuci"]
+[ext_resource type="Texture2D" uid="uid://30hf02gev40b" path="res://images/intro-5.png" id="5_tpbte"]
+[ext_resource type="AudioStream" uid="uid://c6ur5n53eaoon" path="res://sounds/ambiant.wav" id="8_riigq"]
+[ext_resource type="PackedScene" uid="uid://bs35u0xsjda5h" path="res://scenes/pause_menu.tscn" id="9_mx7pf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xehpi"]
+font = ExtResource("2_g7n12")
+font_size = 9
+
+[sub_resource type="Animation" id="Animation_01kx7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("panel-1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("panel-2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("panel-3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("panel-4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("panel-5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2kk21"]
+resource_name = "new_animation"
+length = 27.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("panel-1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("panel-2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("panel-3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10, 15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("panel-4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 15, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("panel-5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gtan3"]
+_data = {
+"RESET": SubResource("Animation_01kx7"),
+"new_animation": SubResource("Animation_2kk21")
+}
+
+[node name="intro" type="Node2D"]
+script = ExtResource("1_muhqy")
+
+[node name="panel-1" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="panel-1"]
+position = Vector2(200, 87)
+texture = ExtResource("1_srqyk")
+
+[node name="Label" type="Label" parent="panel-1"]
+offset_left = 102.0
+offset_top = 178.0
+offset_right = 307.0
+offset_bottom = 190.0
+text = "We are the crew of the SS Conveyance."
+label_settings = SubResource("LabelSettings_xehpi")
+
+[node name="panel-2" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="panel-2"]
+position = Vector2(200, 87)
+texture = ExtResource("3_algn3")
+
+[node name="Label" type="Label" parent="panel-2"]
+offset_left = 68.0
+offset_top = 177.0
+offset_right = 332.0
+offset_bottom = 189.0
+text = "Our mission was to deliver supplies to a distant colony."
+label_settings = SubResource("LabelSettings_xehpi")
+
+[node name="panel-3" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="panel-3"]
+position = Vector2(200, 87)
+texture = ExtResource("4_ns8qv")
+
+[node name="Label" type="Label" parent="panel-3"]
+offset_left = 83.0
+offset_top = 177.0
+offset_right = 324.0
+offset_bottom = 189.0
+text = "We were pulled off course and into a wormhole!"
+label_settings = SubResource("LabelSettings_xehpi")
+
+[node name="panel-4" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="panel-4"]
+position = Vector2(200, 87)
+texture = ExtResource("5_tpbte")
+
+[node name="Label" type="Label" parent="panel-4"]
+offset_left = 19.0
+offset_top = 177.0
+offset_right = 385.0
+offset_bottom = 219.0
+text = "We survived, but we were lost in unknown space."
+label_settings = SubResource("LabelSettings_xehpi")
+horizontal_alignment = 1
+
+[node name="panel-5" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="panel-5"]
+position = Vector2(200, 87)
+texture = ExtResource("5_ntuci")
+
+[node name="Label" type="Label" parent="panel-5"]
+offset_left = 19.0
+offset_top = 162.0
+offset_right = 385.0
+offset_bottom = 204.0
+text = "
+A city floats in the distance. Perhaps they can help us
+find our way home..."
+label_settings = SubResource("LabelSettings_xehpi")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gtan3")
+}
+autoplay = "new_animation"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_riigq")
+volume_db = -15.0
+autoplay = true
+bus = &"music"
+
+[node name="pause_menu" parent="." instance=ExtResource("9_mx7pf")]
+visible = false
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

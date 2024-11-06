@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://q37umxlnasop"]
+
+[ext_resource type="Texture2D" uid="uid://dsref6jigvkv3" path="res://images/warning.png" id="1_8w53e"]
+[ext_resource type="Script" path="res://objects/ememies/dotted_line.gd" id="3_0p5f6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c8gt"]
+atlas = ExtResource("1_8w53e")
+region = Rect2(0, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dt37"]
+atlas = ExtResource("1_8w53e")
+region = Rect2(14, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxy2h"]
+atlas = ExtResource("1_8w53e")
+region = Rect2(28, 0, 14, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gyu51"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c8gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dt37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxy2h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="EnemyMiniMap" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gyu51")
+autoplay = "default"
+frame_progress = 0.824216
+
+[node name="DottedLine" type="Node2D" parent="."]
+script = ExtResource("3_0p5f6")

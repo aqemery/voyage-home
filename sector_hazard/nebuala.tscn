@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmgg7cre4we5j"]
+
+[ext_resource type="Texture2D" uid="uid://bt4i7unk0ku44" path="res://images/area-nebula.png" id="2_xemah"]
+
+[node name="nebuala" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xemah")
+centered = false

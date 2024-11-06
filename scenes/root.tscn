@@ -1,0 +1,228 @@
+[gd_scene load_steps=21 format=3 uid="uid://cak3wdahbglks"]
+
+[ext_resource type="PackedScene" uid="uid://d1yx2slvja0jt" path="res://objects/ui/minimap_level.tscn" id="1_8nl68"]
+[ext_resource type="Script" path="res://scenes/root.gd" id="1_uwv17"]
+[ext_resource type="PackedScene" uid="uid://b3phssckxxih" path="res://objects/ui/fuel_tank.tscn" id="2_f2qpi"]
+[ext_resource type="Texture2D" uid="uid://ckft882y7le3y" path="res://images/frame.png" id="3_sdqvu"]
+[ext_resource type="PackedScene" uid="uid://dhoyuwma1no8p" path="res://scenes/level.tscn" id="4_sj4qr"]
+[ext_resource type="Shader" path="res://objects/ui/fog.gdshader" id="6_mdw23"]
+[ext_resource type="Texture2D" uid="uid://bt4i7unk0ku44" path="res://images/area-nebula.png" id="6_vsrw3"]
+[ext_resource type="Script" path="res://objects/ui/fog.gd" id="7_madym"]
+[ext_resource type="Texture2D" uid="uid://daucehaxq1ngd" path="res://images/sectors-hidden.png" id="8_eha53"]
+[ext_resource type="Script" path="res://objects/ui/mini_map_scripts/camera_2d.gd" id="10_cn84a"]
+[ext_resource type="Script" path="res://objects/ui/positon.gd" id="11_hygoc"]
+[ext_resource type="PackedScene" uid="uid://bs35u0xsjda5h" path="res://scenes/pause_menu.tscn" id="12_joln7"]
+[ext_resource type="AudioStream" uid="uid://de08ud3ltvsxn" path="res://sounds/game_play.mp3" id="13_mwjp1"]
+[ext_resource type="AudioStream" uid="uid://duv74hpf05am6" path="res://sounds/game-enemy.mp3" id="14_ov6j2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7mj1"]
+shader = ExtResource("6_mdw23")
+shader_parameter/point = Vector2(30, 30)
+shader_parameter/max_distance = 0.05
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_n2deb"]
+stream_count = 2
+stream_0/stream = ExtResource("13_mwjp1")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("14_ov6j2")
+stream_1/volume = -60.0
+
+[sub_resource type="Animation" id="Animation_27c6g"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:stream:stream_0/volume")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream:stream_1/volume")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-60, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_3a3q0"]
+resource_name = "enemy_leave"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:stream:stream_0/volume")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-60, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 1.9)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream:stream_1/volume")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -60, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667, 1.93333)
+}
+
+[sub_resource type="Animation" id="Animation_sc38t"]
+resource_name = "enemy_range"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:stream:stream_0/volume")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -60, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667, 1.93333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:stream:stream_1/volume")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-60, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667, 1.93333)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_86lwa"]
+_data = {
+"RESET": SubResource("Animation_27c6g"),
+"enemy_leave": SubResource("Animation_3a3q0"),
+"enemy_range": SubResource("Animation_sc38t")
+}
+
+[node name="Root" type="Node2D"]
+process_mode = 3
+texture_filter = 1
+script = ExtResource("1_uwv17")
+
+[node name="MainLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="MainLayer"]
+texture = ExtResource("3_sdqvu")
+centered = false
+
+[node name="fuel_tank" parent="MainLayer" instance=ExtResource("2_f2qpi")]
+process_mode = 3
+position = Vector2(7, 61)
+
+[node name="mainContainer" type="SubViewportContainer" parent="."]
+process_mode = 3
+offset_left = 64.0
+offset_top = 5.0
+offset_right = 395.0
+offset_bottom = 235.0
+
+[node name="mainViewport" type="SubViewport" parent="mainContainer"]
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+audio_listener_enable_2d = true
+size = Vector2i(332, 230)
+render_target_update_mode = 4
+
+[node name="level" parent="mainContainer/mainViewport" instance=ExtResource("4_sj4qr")]
+
+[node name="mapContainer" type="SubViewportContainer" parent="."]
+process_mode = 3
+texture_filter = 1
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 57.0
+offset_bottom = 53.0
+
+[node name="mapViewport" type="SubViewport" parent="mapContainer"]
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(52, 48)
+render_target_update_mode = 4
+
+[node name="map" type="Node2D" parent="mapContainer/mapViewport"]
+texture_filter = 1
+
+[node name="Node2D" type="Node2D" parent="mapContainer/mapViewport/map"]
+texture_filter = 1
+
+[node name="minimap-level" parent="mapContainer/mapViewport/map/Node2D" instance=ExtResource("1_8nl68")]
+texture_filter = 1
+
+[node name="nebuala" type="Node2D" parent="mapContainer/mapViewport/map"]
+
+[node name="Sprite2D" type="Sprite2D" parent="mapContainer/mapViewport/map/nebuala"]
+texture = ExtResource("6_vsrw3")
+centered = false
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="mapContainer/mapViewport/map"]
+offset_right = 337.0
+offset_bottom = 337.0
+
+[node name="SubViewport" type="SubViewport" parent="mapContainer/mapViewport/map/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+snap_2d_vertices_to_pixel = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(337, 337)
+render_target_update_mode = 4
+
+[node name="fog" type="Sprite2D" parent="mapContainer/mapViewport/map/SubViewportContainer/SubViewport"]
+process_mode = 3
+material = SubResource("ShaderMaterial_t7mj1")
+texture = ExtResource("8_eha53")
+centered = false
+script = ExtResource("7_madym")
+
+[node name="positon" type="Node2D" parent="mapContainer/mapViewport/map"]
+scale = Vector2(2, 2)
+script = ExtResource("11_hygoc")
+
+[node name="Camera2D" type="Camera2D" parent="mapContainer/mapViewport/map/positon"]
+texture_filter = 1
+position = Vector2(-13, -12)
+scale = Vector2(0.5, 0.5)
+anchor_mode = 0
+limit_left = 0
+limit_top = 0
+limit_right = 337
+limit_bottom = 337
+script = ExtResource("10_cn84a")
+
+[node name="Timer" type="Timer" parent="mapContainer/mapViewport/map"]
+wait_time = 0.5
+autostart = true
+
+[node name="pause_menu" parent="." instance=ExtResource("12_joln7")]
+unique_name_in_owner = true
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_n2deb")
+autoplay = true
+bus = &"music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_86lwa")
+}
+
+[connection signal="timeout" from="mapContainer/mapViewport/map/Timer" to="mapContainer/mapViewport/map/positon" method="_on_timer_timeout"]
