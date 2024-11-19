@@ -10,5 +10,4 @@ func _input(event):
         var next_step = int(animation_player.current_animation_position) / 5 * 5 + 5.0
         if next_step > 27:
             next_step = 26.9
-        print(next_step)
         animation_player.seek(next_step)

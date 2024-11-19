@@ -1,6 +1,6 @@
-[gd_scene load_steps=117 format=3 uid="uid://d1yx2slvja0jt"]
+[gd_scene load_steps=120 format=3 uid="uid://d1yx2slvja0jt"]
 
-[ext_resource type="Texture2D" uid="uid://dwqsryom40ky0" path="res://images/sectors.png" id="1_260ph"]
+[ext_resource type="Texture2D" uid="uid://cyd52031eqfyg" path="res://images/sector-frame.png" id="1_o8mfn"]
 [ext_resource type="Texture2D" uid="uid://blac8bvbo06ic" path="res://images/sectors-empty.png" id="1_yxfc7"]
 [ext_resource type="Texture2D" uid="uid://dl5igueh5pb1p" path="res://images/construction.png" id="3_830ns"]
 [ext_resource type="Texture2D" uid="uid://c53cv4e47s1fk" path="res://images/base.png" id="4_3pch1"]
@@ -16,9 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://c5s8ljxgfuhq3" path="res://images/ore.png" id="9_52rjp"]
 [ext_resource type="Texture2D" uid="uid://c65q5twipj30x" path="res://images/ruins.png" id="11_qvw5a"]
 [ext_resource type="Script" path="res://objects/ui/mini_ore.gd" id="14_bc51j"]
+[ext_resource type="Shader" path="res://objects/ui/minimap_level.gdshader" id="16_hhm6w"]
 [ext_resource type="Texture2D" uid="uid://bt4i7unk0ku44" path="res://images/area-nebula.png" id="18_7286p"]
 [ext_resource type="Texture2D" uid="uid://d16qjndbaogx5" path="res://images/area-asteroid-export.png" id="19_4euk4"]
 [ext_resource type="Texture2D" uid="uid://lqrlb2srqmbh" path="res://images/planet-small.png" id="20_4x5d1"]
+[ext_resource type="Texture2D" uid="uid://ce4l1j3i5hx54" path="res://images/texture.png" id="20_60xgr"]
 [ext_resource type="Script" path="res://objects/ui/enemies_on_mini.gd" id="21_k5sgd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hg8nq"]
@@ -541,6 +543,9 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5xk8x"]
+shader = ExtResource("16_hhm6w")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuv6r"]
 atlas = ExtResource("20_4x5d1")
 region = Rect2(0, 0, 32, 32)
@@ -719,15 +724,21 @@ animations = [{
 
 [node name="minimap-level" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_yxfc7")
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_offset = Vector2(48, 48)
+repeat_size = Vector2(48, 48)
+repeat_times = 9
+limit_begin = Vector2(0, 0)
+screen_offset = Vector2(144, 144)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("1_o8mfn")
 centered = false
 
-[node name="Sectors" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("1_260ph")
+texture = ExtResource("1_yxfc7")
 centered = false
-region_rect = Rect2(0, 0, 52, 48)
 
 [node name="stations" type="Node2D" parent="."]
 
@@ -921,7 +932,16 @@ sprite_frames = SubResource("SpriteFrames_w2m1y")
 autoplay = "default"
 frame_progress = 0.855639
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+clip_children = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_5xk8x")
+texture = ExtResource("20_60xgr")
+invert_border = 1.0
+polygon = PackedVector2Array(336, 238, 322, 234, 302, 216, 284, 197, 271, 190, 260, 190, 249, 190, 226, 192, 210, 194, 194, 192, 182, 197, 170, 208, 157, 210, 145, 201, 143, 188, 141, 186, 139, 183, 136, 171, 141, 154, 149, 147, 166, 146, 172, 140, 178, 140, 189, 131, 199, 129, 207, 135, 211, 138, 222, 136, 232, 128, 245, 129, 257, 139, 263, 143, 270, 140, 286, 138, 287, 121, 306, 105, 320, 102, 336, 93)
+
 [node name="Nebula" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("18_7286p")
 centered = false
 
